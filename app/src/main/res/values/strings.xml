@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TransporteZaragozaAPI</string>
+    <string name="tv_titleMain">Aplicación en Construcción</string>
+    <string name="btn_irBicicletas">Estaciones Bizi</string>
 </resources>
