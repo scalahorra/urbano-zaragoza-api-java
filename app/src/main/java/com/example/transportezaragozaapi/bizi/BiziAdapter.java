@@ -51,7 +51,6 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
 
         ImageView imageView;
         TextView title;
-        ConstraintLayout constraintLayout;
 
         public BiziHolder(@NonNull View itemView) {
             super(itemView);

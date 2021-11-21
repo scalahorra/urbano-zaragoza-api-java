@@ -61,7 +61,8 @@ public class BiziActivity extends AppCompatActivity {
                             for(int i=0; i<jsonArray.length(); i++) {
                                 JSONObject result = jsonArray.getJSONObject(i);
                                 String title = result.getString("title");
-                                String icon = result.getString("icon");
+                                String iconProvisional = result.getString("icon");
+                                String icon = "https:" + iconProvisional;
 
                                 Bizi bizi = new Bizi(title, icon);
                                 biziList.add(bizi);
