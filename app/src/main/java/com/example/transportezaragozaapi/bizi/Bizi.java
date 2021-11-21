@@ -9,6 +9,7 @@ public class Bizi {
         this.icon = icon;
     }
 
+
     public String getTitle() {
         return title;
     }
