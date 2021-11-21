@@ -29,12 +29,14 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/btn_irBicicletas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="irBizi"
                 android:text="@string/btn_irBicicletas"
                 android:textSize="14sp" />
         </TableRow>
