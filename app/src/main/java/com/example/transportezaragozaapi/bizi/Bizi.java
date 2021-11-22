@@ -2,10 +2,14 @@ package com.example.transportezaragozaapi.bizi;
 
 public class Bizi {
 
-    private String title, icon;
+    private String title, icon, id;
+    private Integer bicisDisponibles, anclajesDisponibles;
 
-    public Bizi(String title, String icon) {
+    public Bizi(String title, String id, Integer bicisDisponibles, Integer anclajesDisponibles, String icon) {
         this.title = title;
+        this.id = id;
+        this.bicisDisponibles = bicisDisponibles;
+        this.anclajesDisponibles = anclajesDisponibles;
         this.icon = icon;
     }
 
@@ -14,15 +18,20 @@ public class Bizi {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getIcon() {
         return icon;
     }
 
-    public void setIcon(String icon) {
-        this.icon = icon;
+    public String getId() {
+        return id;
     }
+
+    public Integer getBicisDisponibles() {
+        return bicisDisponibles;
+    }
+
+    public Integer getAnclajesDisponibles() {
+        return anclajesDisponibles;
+    }
+
 }

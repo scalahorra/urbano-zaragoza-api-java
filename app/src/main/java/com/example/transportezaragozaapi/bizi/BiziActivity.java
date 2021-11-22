@@ -44,6 +44,7 @@ public class BiziActivity extends AppCompatActivity {
     }
 
 
+    // Metodo sacar todas las
     private void buscarBizi() {
 
         String url = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/estacion-bicicleta.json";
@@ -64,7 +65,12 @@ public class BiziActivity extends AppCompatActivity {
                                 String iconProvisional = result.getString("icon");
                                 String icon = "https:" + iconProvisional;
 
-                                Bizi bizi = new Bizi(title, icon);
+                                String id = result.getString("id");
+                                Integer bicisDisponibles = result.getInt("bicisDisponibles");
+                                Integer anclajesDisponibles = result.getInt("anclajesDisponibles");
+
+                                //Bizi bizi = new Bizi(title, id, bicisDisponibles, anclajesDisponibles, icon);
+                                Bizi bizi = new Bizi(title, id, bicisDisponibles, anclajesDisponibles, icon);
                                 biziList.add(bizi);
                             }
 

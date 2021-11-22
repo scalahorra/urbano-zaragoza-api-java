@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TransporteZaragozaAPI">
         <activity
+            android:name=".bizi.BiziExtendidaActivity"
+            android:exported="true" />
+        <activity
             android:name=".bizi.BiziActivity"
             android:exported="true" />
         <activity
