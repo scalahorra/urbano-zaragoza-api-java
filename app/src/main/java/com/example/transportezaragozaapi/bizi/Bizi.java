@@ -5,7 +5,13 @@ public class Bizi {
     private String title, icon, id;
     private Integer bicisDisponibles, anclajesDisponibles;
 
-    public Bizi(String title, String id, Integer bicisDisponibles, Integer anclajesDisponibles, String icon) {
+    public Bizi(String title, String id, String icon) {
+        this.title = title;
+        this.id = id;
+        this.icon = icon;
+    }
+
+    public Bizi(String title, String id, int bicisDisponibles, int anclajesDisponibles, String icon) {
         this.title = title;
         this.id = id;
         this.bicisDisponibles = bicisDisponibles;

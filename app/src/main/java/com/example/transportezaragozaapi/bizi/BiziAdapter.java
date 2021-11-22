@@ -44,7 +44,7 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
         holder.id.setText(bizi.getId());
         holder.bicisDisponibles.setText(bizi.getBicisDisponibles().toString());
         holder.anclajesDisponibles.setText(bizi.getAnclajesDisponibles().toString());
-        Glide.with(context).load(bizi.getIcon()).into(holder.imageView);
+        Glide.with(context).load(bizi.getIcon()).into(holder.icon);
 
 
         holder.mainLayoutBizi.setOnClickListener(new View.OnClickListener() {
@@ -55,6 +55,7 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
                 Bundle bundle = new Bundle();
                 bundle.putString("title", bizi.getTitle());
                 bundle.putString("id", bizi.getId());
+                bundle.putString("icon", bizi.getIcon());
                 bundle.putInt("bicisDisponibles", bizi.getBicisDisponibles());
                 bundle.putInt("anclajesDisponibles", bizi.getAnclajesDisponibles());
 
@@ -75,14 +76,14 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
 
     public class BiziHolder extends RecyclerView.ViewHolder {
 
-        ImageView imageView;
+        ImageView icon;
         TextView title, id, bicisDisponibles, anclajesDisponibles;
         ConstraintLayout mainLayoutBizi;
 
         public BiziHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.imageView);
+            icon = itemView.findViewById(R.id.imageView);
             title = itemView.findViewById(R.id.tv_titleBizi);
             id = itemView.findViewById(R.id.tv_idBizi);
             bicisDisponibles = itemView.findViewById(R.id.tv_bicisBizi);
