@@ -68,9 +68,10 @@ public class BiziActivity extends AppCompatActivity {
                                 String id = result.getString("id");
                                 Integer bicisDisponibles = result.getInt("bicisDisponibles");
                                 Integer anclajesDisponibles = result.getInt("anclajesDisponibles");
+                                String lastUpdated = result.getString("lastUpdated");
 
                                 //Bizi bizi = new Bizi(title, id, icon);
-                                Bizi bizi = new Bizi(title, id, bicisDisponibles, anclajesDisponibles, icon);
+                                Bizi bizi = new Bizi(title, id, bicisDisponibles, anclajesDisponibles, icon, lastUpdated);
                                 biziList.add(bizi);
                             }
 

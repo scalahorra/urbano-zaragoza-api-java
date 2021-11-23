@@ -6,4 +6,5 @@
     <string name="tv_idBiziExtendida">ID Estación</string>
     <string name="tv_bDisponibleBiziExtendida">Bicicletas disponibles</string>
     <string name="tv_aBiziExtendida">Anclajes disponibles</string>
+    <string name="tv_lastUpdateBiziExtendida">Última actualización</string>
 </resources>

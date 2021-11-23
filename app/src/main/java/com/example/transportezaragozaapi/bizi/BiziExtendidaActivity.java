@@ -21,6 +21,7 @@ public class BiziExtendidaActivity extends AppCompatActivity {
         TextView id = findViewById(R.id.tv_idBiziExtendida);
         TextView bicisDisponibles = findViewById(R.id.tv_bDisponiblesBiziExtendida);
         TextView anclajesDisponibles = findViewById(R.id.tv_aBiziExtendida);
+        TextView lastUpdate = findViewById(R.id.tv_lastUpdateBiziExtendida);
 
         Bundle bundle= getIntent().getExtras();
 
@@ -29,11 +30,13 @@ public class BiziExtendidaActivity extends AppCompatActivity {
         String eIcon = bundle.getString("icon");
         int eBicisDisponibles = bundle.getInt("bicisDisponibles");
         int eAnclajesDisponibles = bundle.getInt("anclajesDisponibles");
+        String eLastUpdate = bundle.getString("lastUpdated");
 
         title.setText(eTitle);
         id.setText(eId);
         Glide.with(this).load(eIcon).into(imageView);
         bicisDisponibles.setText(Integer.toString(eBicisDisponibles));
         anclajesDisponibles.setText(Integer.toString(eAnclajesDisponibles));
+        lastUpdate.setText(eLastUpdate);
     }
 }
