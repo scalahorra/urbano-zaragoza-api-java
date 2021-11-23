@@ -40,14 +40,12 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
     @Override
     public void onBindViewHolder(@NonNull BiziHolder holder, int position) {
         Bizi bizi = biziList.get(position);
-        holder.title.setText(bizi.getTitle());
         holder.id.setText(bizi.getId());
+        holder.title.setText(bizi.getTitle());
+        holder.lastUpdate.setText(bizi.getLastUpdate());
         holder.bicisDisponibles.setText(bizi.getBicisDisponibles().toString());
         holder.anclajesDisponibles.setText(bizi.getAnclajesDisponibles().toString());
-        holder.lastUpdate.setText(bizi.getLastUpdate());
         Glide.with(context).load(bizi.getIcon()).into(holder.icon);
-
-
         holder.mainLayoutBizi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +54,6 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
                 Bundle bundle = new Bundle();
                 bundle.putString("title", bizi.getTitle());
                 bundle.putString("id", bizi.getId());
-                bundle.putString("icon", bizi.getIcon());
                 bundle.putInt("bicisDisponibles", bizi.getBicisDisponibles());
                 bundle.putInt("anclajesDisponibles", bizi.getAnclajesDisponibles());
                 bundle.putString("lastUpdated", bizi.getLastUpdate());
@@ -91,7 +88,6 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
             bicisDisponibles = itemView.findViewById(R.id.tv_bicisBizi);
             anclajesDisponibles = itemView.findViewById(R.id.tv_anclajesBizi);
             lastUpdate = itemView.findViewById(R.id.tv_lastUpdateBizi);
-
             mainLayoutBizi = itemView.findViewById(R.id.mainLayoutBizi);
         }
     }

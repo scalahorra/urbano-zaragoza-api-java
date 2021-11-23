@@ -2,11 +2,14 @@ package com.example.transportezaragozaapi.bizi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
 
 public class BiziExtendidaActivity extends AppCompatActivity {
@@ -16,27 +19,24 @@ public class BiziExtendidaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bizi_extendida);
 
-        ImageView imageView = findViewById(R.id.iv_iconExtendido);
-        TextView title = findViewById(R.id.tv_titleBiziExtendida);
         TextView id = findViewById(R.id.tv_idBiziExtendida);
+        TextView title = findViewById(R.id.tv_titleBiziExtendida);
+        TextView lastUpdate = findViewById(R.id.tv_lastUpdateBiziExtendida);
         TextView bicisDisponibles = findViewById(R.id.tv_bDisponiblesBiziExtendida);
         TextView anclajesDisponibles = findViewById(R.id.tv_aBiziExtendida);
-        TextView lastUpdate = findViewById(R.id.tv_lastUpdateBiziExtendida);
 
         Bundle bundle= getIntent().getExtras();
 
-        String eTitle = bundle.getString("title");
         String eId = bundle.getString("id");
-        String eIcon = bundle.getString("icon");
+        String eTitle = bundle.getString("title");
+        String eLastUpdate = bundle.getString("lastUpdated");
         int eBicisDisponibles = bundle.getInt("bicisDisponibles");
         int eAnclajesDisponibles = bundle.getInt("anclajesDisponibles");
-        String eLastUpdate = bundle.getString("lastUpdated");
 
-        title.setText(eTitle);
         id.setText(eId);
-        Glide.with(this).load(eIcon).into(imageView);
+        title.setText(eTitle);
+        lastUpdate.setText(eLastUpdate);
         bicisDisponibles.setText(Integer.toString(eBicisDisponibles));
         anclajesDisponibles.setText(Integer.toString(eAnclajesDisponibles));
-        lastUpdate.setText(eLastUpdate);
     }
 }

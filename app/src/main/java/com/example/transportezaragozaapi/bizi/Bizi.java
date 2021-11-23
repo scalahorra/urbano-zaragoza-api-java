@@ -5,12 +5,6 @@ public class Bizi {
     private String title, icon, id, lastUpdate;
     private Integer bicisDisponibles, anclajesDisponibles;
 
-    public Bizi(String title, String id, String icon) {
-        this.title = title;
-        this.id = id;
-        this.icon = icon;
-    }
-
     public Bizi(String title, String id, int bicisDisponibles, int anclajesDisponibles, String icon, String lastUpdate) {
         this.title = title;
         this.id = id;
