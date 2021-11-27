@@ -40,25 +40,29 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
     @Override
     public void onBindViewHolder(@NonNull BiziHolder holder, int position) {
         Bizi bizi = biziList.get(position);
-        holder.id.setText(bizi.getId());
         holder.title.setText(bizi.getTitle());
+        holder.id.setText(bizi.getId());
+        holder.bicisDisponibles.setText(bizi.getBicisDisponibles().toString());
+        holder.anclajesDisponibles.setText(bizi.getAnclajesDisponibles().toString());
         Glide.with(context).load(bizi.getIcon()).into(holder.icon);
+
+
         holder.mainLayoutBizi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent= new Intent(context, BiziExtendidaActivity.class);
 
                 Bundle bundle = new Bundle();
+                bundle.putString("title", bizi.getTitle());
                 bundle.putString("id", bizi.getId());
+                bundle.putString("icon", bizi.getIcon());
+                bundle.putInt("bicisDisponibles", bizi.getBicisDisponibles());
+                bundle.putInt("anclajesDisponibles", bizi.getAnclajesDisponibles());
 
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
-
-
         });
-
-
     }
 
     @Override
@@ -69,7 +73,7 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
     public class BiziHolder extends RecyclerView.ViewHolder {
 
         ImageView icon;
-        TextView title, id;
+        TextView title, id, bicisDisponibles, anclajesDisponibles;
         ConstraintLayout mainLayoutBizi;
 
         public BiziHolder(@NonNull View itemView) {
@@ -78,8 +82,10 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
             icon = itemView.findViewById(R.id.imageView);
             title = itemView.findViewById(R.id.tv_titleBizi);
             id = itemView.findViewById(R.id.tv_idBizi);
+            bicisDisponibles = itemView.findViewById(R.id.tv_bicisBizi);
+            anclajesDisponibles = itemView.findViewById(R.id.tv_anclajesBizi);
+
             mainLayoutBizi = itemView.findViewById(R.id.mainLayoutBizi);
         }
     }
 }
-

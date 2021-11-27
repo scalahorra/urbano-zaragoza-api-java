@@ -61,17 +61,23 @@ public class BiziActivity extends AppCompatActivity {
 
                             for(int i=0; i<jsonArray.length(); i++) {
                                 JSONObject result = jsonArray.getJSONObject(i);
+                                String title = result.getString("title");
+                                String iconProvisional = result.getString("icon");
+                                String icon = "https:" + iconProvisional;
 
                                 String id = result.getString("id");
-                                String title = result.getString("title");
-                                String icon = "https:" + result.getString("icon");
+                                Integer bicisDisponibles = result.getInt("bicisDisponibles");
+                                Integer anclajesDisponibles = result.getInt("anclajesDisponibles");
 
-                                Bizi bizi = new Bizi(title, id, icon);
+                                //Bizi bizi = new Bizi(title, id, icon);
+                                Bizi bizi = new Bizi(title, id, bicisDisponibles, anclajesDisponibles, icon);
                                 biziList.add(bizi);
                             }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
                         BiziAdapter adapter = new BiziAdapter(BiziActivity.this, biziList);
                         recyclerView.setAdapter(adapter);
                     }

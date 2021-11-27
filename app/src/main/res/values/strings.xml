@@ -7,5 +7,4 @@
     <string name="tv_bDisponibleBiziExtendida">Bicicletas disponibles</string>
     <string name="tv_aBiziExtendida">Anclajes disponibles</string>
     <string name="tv_lastUpdateBiziExtendida">Última actualización</string>
-    <string name="btn_refrescarBiziExtendido">Refrescar</string>
 </resources>

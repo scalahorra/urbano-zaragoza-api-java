@@ -2,22 +2,21 @@ package com.example.transportezaragozaapi.bizi;
 
 public class Bizi {
 
-    private String title, icon, id, lastUpdate;
+    private String title, icon, id;
     private Integer bicisDisponibles, anclajesDisponibles;
 
     public Bizi(String title, String id, String icon) {
-        this.icon = this.icon;
-        this.title = this.title;
-        this.id = this.id;
+        this.title = title;
+        this.id = id;
+        this.icon = icon;
     }
 
-
-    public Bizi(String title, String id, int bicisDisponibles, int anclajesDisponibles, String lastUpdate) {
+    public Bizi(String title, String id, int bicisDisponibles, int anclajesDisponibles, String icon) {
         this.title = title;
         this.id = id;
         this.bicisDisponibles = bicisDisponibles;
         this.anclajesDisponibles = anclajesDisponibles;
-        this.lastUpdate = lastUpdate;
+        this.icon = icon;
     }
 
 
@@ -39,10 +38,6 @@ public class Bizi {
 
     public Integer getAnclajesDisponibles() {
         return anclajesDisponibles;
-    }
-
-    public String getLastUpdate(){
-        return lastUpdate;
     }
 
 }
