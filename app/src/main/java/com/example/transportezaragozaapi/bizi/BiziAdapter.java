@@ -65,6 +65,7 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
 
                 intent.putExtras(bundle);
                 context.startActivity(intent);
+                ((BiziActivity) context).finish();
             }
         });
     }

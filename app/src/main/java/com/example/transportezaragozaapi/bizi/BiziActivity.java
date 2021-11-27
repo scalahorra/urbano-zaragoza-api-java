@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -41,6 +42,10 @@ public class BiziActivity extends AppCompatActivity {
         biziList = new ArrayList<>();
 
         buscarBizi();
+    }
+
+    public void finalizar(View view) {
+        finish();
     }
 
 

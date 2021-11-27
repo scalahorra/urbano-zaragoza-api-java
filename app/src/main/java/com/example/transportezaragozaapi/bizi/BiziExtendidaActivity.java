@@ -3,6 +3,8 @@ package com.example.transportezaragozaapi.bizi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -51,5 +53,12 @@ public class BiziExtendidaActivity extends AppCompatActivity {
         ultimaActualizacion.setText(eUltimaActualizacion);
         bicisDisponibles.setText(Integer.toString(eBicisDisponibles));
         anclajesDisponibles.setText(Integer.toString(eAnclajesDisponibles));
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent irLista = new Intent(this, BiziActivity.class);
+        startActivity(irLista);
+        finish();
     }
 }
