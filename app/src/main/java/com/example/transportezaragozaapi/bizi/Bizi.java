@@ -5,12 +5,18 @@ public class Bizi {
     private String title, icon, id, lastUpdate;
     private Integer bicisDisponibles, anclajesDisponibles;
 
-    public Bizi(String title, String id, int bicisDisponibles, int anclajesDisponibles, String icon, String lastUpdate) {
+    public Bizi(String title, String id, String icon) {
+        this.icon = this.icon;
+        this.title = this.title;
+        this.id = this.id;
+    }
+
+
+    public Bizi(String title, String id, int bicisDisponibles, int anclajesDisponibles, String lastUpdate) {
         this.title = title;
         this.id = id;
         this.bicisDisponibles = bicisDisponibles;
         this.anclajesDisponibles = anclajesDisponibles;
-        this.icon = icon;
         this.lastUpdate = lastUpdate;
     }
 

@@ -64,13 +64,9 @@ public class BiziActivity extends AppCompatActivity {
 
                                 String id = result.getString("id");
                                 String title = result.getString("title");
-                                String lastUpdated = result.getString("lastUpdated");
-                                String iconProvisional = result.getString("icon");
-                                String icon = "https:" + iconProvisional;
-                                Integer bicisDisponibles = result.getInt("bicisDisponibles");
-                                Integer anclajesDisponibles = result.getInt("anclajesDisponibles");
+                                String icon = "https:" + result.getString("icon");
 
-                                Bizi bizi = new Bizi(title, id, bicisDisponibles, anclajesDisponibles, icon, lastUpdated);
+                                Bizi bizi = new Bizi(title, id, icon);
                                 biziList.add(bizi);
                             }
                         } catch (JSONException e) {

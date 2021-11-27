@@ -2,41 +2,88 @@ package com.example.transportezaragozaapi.bizi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
+import android.util.Log;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.example.transportezaragozaapi.MainActivity;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.transportezaragozaapi.R;
+import com.example.transportezaragozaapi.VolleySingleton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class BiziExtendidaActivity extends AppCompatActivity {
+
+    TextView id, title, bizisDisponibles, anclajesDisponibles;
+    private RequestQueue requestQueue;
+    private Bizi bizi;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bizi_extendida);
 
-        TextView id = findViewById(R.id.tv_idBiziExtendida);
-        TextView title = findViewById(R.id.tv_titleBiziExtendida);
-        TextView lastUpdate = findViewById(R.id.tv_lastUpdateBiziExtendida);
-        TextView bicisDisponibles = findViewById(R.id.tv_bDisponiblesBiziExtendida);
-        TextView anclajesDisponibles = findViewById(R.id.tv_aBiziExtendida);
-
-        Bundle bundle= getIntent().getExtras();
-
+        id = findViewById(R.id.tv_idBiziExtendida);
+        Bundle bundle = getIntent().getExtras();
         String eId = bundle.getString("id");
-        String eTitle = bundle.getString("title");
-        String eLastUpdate = bundle.getString("lastUpdated");
-        int eBicisDisponibles = bundle.getInt("bicisDisponibles");
-        int eAnclajesDisponibles = bundle.getInt("anclajesDisponibles");
-
         id.setText(eId);
-        title.setText(eTitle);
-        lastUpdate.setText(eLastUpdate);
-        bicisDisponibles.setText(Integer.toString(eBicisDisponibles));
-        anclajesDisponibles.setText(Integer.toString(eAnclajesDisponibles));
+
+        requestQueue = VolleySingleton.getInstance(this).getRequestQueue();
+
+        buscarBiziExtendida();
+
+        title = findViewById(R.id.tv_titleBiziExtendida);
+        bizisDisponibles = findViewById(R.id.tv_bDisponiblesBiziExtendida);
+        anclajesDisponibles = findViewById(R.id.tv_aBiziExtendida);
+
+        String bTitle = bizi.getTitle();
+        title.setText(bTitle);
+
+    }
+
+    private void buscarBiziExtendida() {
+
+        String url = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/estacion-bicicleta/" + id.getText().toString() + ".json";
+        System.out.print(url);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        for(int i=0; i<response.length(); i++){
+                            try {
+                                JSONObject jsonObject = response.getJSONObject(i);
+                                String titulo = jsonObject.getString("title");
+                                Integer bicisDisponibles = jsonObject.getInt("bicisDisponibles");
+                                Integer anclajesDisponibles = jsonObject.getInt("anclajesDisponibles");
+                                String lastUpdated = jsonObject.getString("lastUpdated");
+
+
+                                bizi = new Bizi(titulo, id.getText().toString(), bicisDisponibles, anclajesDisponibles, lastUpdated);
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        );
+        requestQueue.add(jsonArrayRequest);
     }
 }
