@@ -1,5 +1,6 @@
 package com.example.transportezaragozaapi.bizi;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,14 +38,15 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
         return new BiziHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull BiziHolder holder, int position) {
         Bizi bizi = biziList.get(position);
-        holder.title.setText(bizi.getTitle());
+        holder.titulo.setText(bizi.getTitulo());
         holder.id.setText(bizi.getId());
         holder.bicisDisponibles.setText(bizi.getBicisDisponibles().toString());
         holder.anclajesDisponibles.setText(bizi.getAnclajesDisponibles().toString());
-        Glide.with(context).load(bizi.getIcon()).into(holder.icon);
+        Glide.with(context).load(bizi.getIcono()).into(holder.icon);
 
 
         holder.mainLayoutBizi.setOnClickListener(new View.OnClickListener() {
@@ -53,9 +55,9 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
                 Intent intent= new Intent(context, BiziExtendidaActivity.class);
 
                 Bundle bundle = new Bundle();
-                bundle.putString("title", bizi.getTitle());
+                bundle.putString("titulo", bizi.getTitulo());
                 bundle.putString("id", bizi.getId());
-                bundle.putString("icon", bizi.getIcon());
+                bundle.putString("icono", bizi.getIcono());
                 bundle.putInt("bicisDisponibles", bizi.getBicisDisponibles());
                 bundle.putInt("anclajesDisponibles", bizi.getAnclajesDisponibles());
 
@@ -73,14 +75,14 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
     public class BiziHolder extends RecyclerView.ViewHolder {
 
         ImageView icon;
-        TextView title, id, bicisDisponibles, anclajesDisponibles;
+        TextView titulo, id, bicisDisponibles, anclajesDisponibles;
         ConstraintLayout mainLayoutBizi;
 
         public BiziHolder(@NonNull View itemView) {
             super(itemView);
 
             icon = itemView.findViewById(R.id.imageView);
-            title = itemView.findViewById(R.id.tv_titleBizi);
+            titulo = itemView.findViewById(R.id.tv_titleBizi);
             id = itemView.findViewById(R.id.tv_idBizi);
             bicisDisponibles = itemView.findViewById(R.id.tv_bicisBizi);
             anclajesDisponibles = itemView.findViewById(R.id.tv_anclajesBizi);

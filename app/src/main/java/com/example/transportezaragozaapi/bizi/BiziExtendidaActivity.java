@@ -1,6 +1,8 @@
 package com.example.transportezaragozaapi.bizi;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -21,28 +23,29 @@ import org.json.JSONObject;
 
 public class BiziExtendidaActivity extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bizi_extendida);
 
         ImageView imageView = findViewById(R.id.iv_iconExtendido);
-        TextView title = findViewById(R.id.tv_titleBiziExtendida);
+        TextView titulo = findViewById(R.id.tv_titleBiziExtendida);
         TextView id = findViewById(R.id.tv_idBiziExtendida);
         TextView bicisDisponibles = findViewById(R.id.tv_bDisponiblesBiziExtendida);
         TextView anclajesDisponibles = findViewById(R.id.tv_aBiziExtendida);
 
         Bundle bundle= getIntent().getExtras();
 
-        String eTitle = bundle.getString("title");
+        String eTitulo = bundle.getString("titulo");
         String eId = bundle.getString("id");
-        String eIcon = bundle.getString("icon");
+        String eIcono = bundle.getString("icono");
         int eBicisDisponibles = bundle.getInt("bicisDisponibles");
         int eAnclajesDisponibles = bundle.getInt("anclajesDisponibles");
 
-        title.setText(eTitle);
+        titulo.setText(eTitulo);
         id.setText(eId);
-        Glide.with(this).load(eIcon).into(imageView);
+        Glide.with(this).load(eIcono).into(imageView);
         bicisDisponibles.setText(Integer.toString(eBicisDisponibles));
         anclajesDisponibles.setText(Integer.toString(eAnclajesDisponibles));
     }
