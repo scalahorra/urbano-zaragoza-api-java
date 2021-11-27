@@ -44,7 +44,6 @@
                 android:id="@+id/tv_idBizi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 android:visibility="gone"
                 app:layout_constraintStart_toEndOf="@+id/tv_titleBizi"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -53,7 +52,6 @@
                 android:id="@+id/tv_bicisBizi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -62,7 +60,14 @@
                 android:id="@+id/tv_anclajesBizi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_ultimaActualizacionBizi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

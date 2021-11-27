@@ -5,15 +5,17 @@ public class Bizi {
     private final String titulo;
     private final String icono;
     private final String id;
+    private final String ultimaActualizacion;
     private final Integer bicisDisponibles;
     private final Integer anclajesDisponibles;
 
-    public Bizi(String titulo, String id, int bicisDisponibles, int anclajesDisponibles, String icono) {
+    public Bizi(String titulo, String id, String icono, String ultimaActualizacion, int bicisDisponibles, int anclajesDisponibles) {
         this.titulo = titulo;
         this.id = id;
+        this.icono = icono;
+        this.ultimaActualizacion = ultimaActualizacion;
         this.bicisDisponibles = bicisDisponibles;
         this.anclajesDisponibles = anclajesDisponibles;
-        this.icono = icono;
     }
 
 
@@ -27,6 +29,10 @@ public class Bizi {
 
     public String getId() {
         return id;
+    }
+
+    public String getUltimaActualizacion() {
+        return ultimaActualizacion;
     }
 
     public Integer getBicisDisponibles() {

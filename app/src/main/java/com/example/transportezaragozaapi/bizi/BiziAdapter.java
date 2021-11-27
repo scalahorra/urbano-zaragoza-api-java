@@ -44,9 +44,10 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
         Bizi bizi = biziList.get(position);
         holder.titulo.setText(bizi.getTitulo());
         holder.id.setText(bizi.getId());
+        holder.ultimaActualizacion.setText(bizi.getUltimaActualizacion());
         holder.bicisDisponibles.setText(bizi.getBicisDisponibles().toString());
         holder.anclajesDisponibles.setText(bizi.getAnclajesDisponibles().toString());
-        Glide.with(context).load(bizi.getIcono()).into(holder.icon);
+        Glide.with(context).load(bizi.getIcono()).into(holder.icono);
 
 
         holder.mainLayoutBizi.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +59,7 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
                 bundle.putString("titulo", bizi.getTitulo());
                 bundle.putString("id", bizi.getId());
                 bundle.putString("icono", bizi.getIcono());
+                bundle.putString("ultimaActualizacion", bizi.getUltimaActualizacion());
                 bundle.putInt("bicisDisponibles", bizi.getBicisDisponibles());
                 bundle.putInt("anclajesDisponibles", bizi.getAnclajesDisponibles());
 
@@ -74,16 +76,17 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
 
     public class BiziHolder extends RecyclerView.ViewHolder {
 
-        ImageView icon;
-        TextView titulo, id, bicisDisponibles, anclajesDisponibles;
+        ImageView icono;
+        TextView titulo, id, bicisDisponibles, anclajesDisponibles, ultimaActualizacion;
         ConstraintLayout mainLayoutBizi;
 
         public BiziHolder(@NonNull View itemView) {
             super(itemView);
 
-            icon = itemView.findViewById(R.id.imageView);
+            icono = itemView.findViewById(R.id.imageView);
             titulo = itemView.findViewById(R.id.tv_titleBizi);
             id = itemView.findViewById(R.id.tv_idBizi);
+            ultimaActualizacion = itemView.findViewById(R.id.tv_ultimaActualizacionBizi);
             bicisDisponibles = itemView.findViewById(R.id.tv_bicisBizi);
             anclajesDisponibles = itemView.findViewById(R.id.tv_anclajesBizi);
 
