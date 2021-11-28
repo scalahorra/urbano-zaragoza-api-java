@@ -78,14 +78,24 @@ public class TranviaActivity extends AppCompatActivity {
 
                                         JSONObject destinos = jsonArray1.getJSONObject(x);
 
-                                        String destino = destinos.getString("destino");
-                                        String minutos = destinos.getString("minutos");
+                                        if(x==0) {
+                                            String destino1 = destinos.getString("destino");
+                                            String minutos1 = destinos.getString("minutos");
 
-                                        System.out.println("Destino: " + destino);
-                                        System.out.println("Minutos: " + minutos);
+                                            System.out.println("Destino 1: " + destino1);
+                                            System.out.println("Minutos 1: " + minutos1);
+
+                                        } else {
+                                            String destino2 = destinos.getString("destino");
+                                            String minutos2 = destinos.getString("minutos");
+
+                                            System.out.println("Destino 2: " + destino2);
+                                            System.out.println("Minutos 2: " + minutos2);
+                                        }
+
                                     }
                                 } catch (JSONException exception){
-
+                                    exception.printStackTrace();
                                 }
 
                                 Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, iconoTranvia);
