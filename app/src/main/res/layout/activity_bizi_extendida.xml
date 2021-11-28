@@ -12,30 +12,62 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/tv_titleBizi"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_idBiziExtendida"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_prev_id"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:text="@string/tv_idBiziExtendida"
+        android:text="@string/tv_prev_id"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_titleBiziExtendida" />
 
     <TextView
+        android:id="@+id/tv_idBiziExtendida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/tv_idBiziExtendida"
+        app:layout_constraintStart_toEndOf="@+id/tv_prev_id"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titleBiziExtendida" />
+
+    <TextView
+        android:id="@+id/tv_prev_biciDisponible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/tv_prev_bicisDisponibles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_prev_id" />
+
+    <TextView
         android:id="@+id/tv_bDisponiblesBiziExtendida"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/tv_bDisponibleBiziExtendida"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_prev_biciDisponible"
         app:layout_constraintTop_toBottomOf="@+id/tv_idBiziExtendida" />
+
+    <TextView
+        android:id="@+id/tv_prev_anclaDisponibles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/tv_prev_anclajesDisponibles"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_prev_biciDisponible" />
 
     <TextView
         android:id="@+id/tv_aBiziExtendida"
@@ -44,7 +76,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/tv_aBiziExtendida"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_prev_anclaDisponibles"
         app:layout_constraintTop_toBottomOf="@+id/tv_bDisponiblesBiziExtendida" />
 
     <ImageView

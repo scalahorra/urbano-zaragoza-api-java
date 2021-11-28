@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TransporteZaragozaAPI</string>
+    <string name="app_name">Transportes de Zaragoza</string>
     <string name="tv_titleMain">Aplicación en Construcción</string>
     <string name="tv_titleBizi">Título estación</string>
     <string name="btn_irBicicletas">Estaciones Bizi</string>
@@ -9,4 +9,7 @@
     <string name="tv_ultimaActualizacionExtendida">Última actualización</string>
     <string name="btn_tranvia">Tranvía</string>
     <string name="btn_bus">Autobús</string>
+    <string name="tv_prev_bicisDisponibles">Bicicletas Disponibles:</string>
+    <string name="tv_prev_anclajesDisponibles">Anclajes Disponibles:</string>
+    <string name="tv_prev_id">ID:</string>
 </resources>

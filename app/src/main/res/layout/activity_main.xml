@@ -36,9 +36,10 @@
                 android:id="@+id/btn_irBicicletas"
                 android:layout_width="250dp"
                 android:layout_height="60dp"
-                android:backgroundTint="#EF7416"
+                android:backgroundTint="@color/cool_blue"
                 android:onClick="irBizi"
                 android:text="@string/btn_irBicicletas"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp" />
         </TableRow>
 
@@ -52,8 +53,9 @@
                 android:id="@+id/btn_tranvia"
                 android:layout_width="250dp"
                 android:layout_height="60dp"
-                android:backgroundTint="@color/orange"
+                android:backgroundTint="@color/cool_blue"
                 android:text="@string/btn_tranvia"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp" />
         </TableRow>
 
@@ -67,9 +69,10 @@
                 android:id="@+id/btn_bus"
                 android:layout_width="250dp"
                 android:layout_height="60dp"
-                android:backgroundTint="@color/orange"
+                android:backgroundTint="@color/cool_blue"
                 android:text="@string/btn_bus"
-                android:textSize="20sp"/>
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
         </TableRow>
 
     </TableLayout>
