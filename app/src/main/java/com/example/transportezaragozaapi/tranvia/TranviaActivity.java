@@ -56,18 +56,21 @@ public class TranviaActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
 
                         try {
+
                             JSONArray jsonArray = response.getJSONArray("result");
+
                             for(int i=0; i<jsonArray.length(); i++) {
+
                                 JSONObject result = jsonArray.getJSONObject(i);
+
                                 String idTranvia = result.getString("id");
                                 String tituloTranvia = result.getString("title");
-                                //String destinoTranvia1 = result.getString("destino");
-                                //Integer minutosTranvia1 = result.getInt("minutos");
-                                //String destinoTranvia2 = result.getString("destino");
-                                //Integer minutosTranvia2 = result.getInt("minutos");
                                 String iconoTranvia = result.getString("icon");
-                                //Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, destinoTranvia1,
-                                //        minutosTranvia1, destinoTranvia2, minutosTranvia2, iconoTranvia);
+                                //String destinos = result.getString("destinos");
+
+                                //System.out.println(destinos);
+
+                                //Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, destinos, iconoTranvia);
                                 Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, iconoTranvia);
                                 tranviaList.add(tranvia);
                             }

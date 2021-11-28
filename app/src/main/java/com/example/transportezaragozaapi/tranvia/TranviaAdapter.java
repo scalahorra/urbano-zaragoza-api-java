@@ -2,6 +2,8 @@ package com.example.transportezaragozaapi.tranvia;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +48,22 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
         //holder.minutosTranvia1.setText(tranvia.getMinutosTranvia1().toString());
         //holder.destinoTranvia2.setText(tranvia.getDestinoTranvia2());
         //holder.minutosTranvia2.setText(tranvia.getMinutosTranvia2().toString());
+
+        holder.mainLayoutTranvia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(context, TranviaExtendidoActivity.class);
+
+                Bundle bundle = new Bundle();
+
+                bundle.putString("tituloTranvia", tranvia.getTituloTranvia());
+                bundle.putString("idTranvia", tranvia.getIdTranvia());
+
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -66,11 +84,11 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
             iconoTranvia = itemView.findViewById(R.id.iv_iconoTranvia);
             idTranvia = itemView.findViewById(R.id.tv_idTranvia);
             tituloTranvia = itemView.findViewById(R.id.tv_tituloTranvia);
-            //destinoTranvia1 = itemView.findViewById(R.id.tv_destinoTranvia1);
+            destinoTranvia1 = itemView.findViewById(R.id.tv_destinoTranvia1);
             //minutosTranvia1 = itemView.findViewById(R.id.tv_minutosTranvia1);
             //destinoTranvia2 = itemView.findViewById(R.id.tv_destinoTranvia2);
             //minutosTranvia2 = itemView.findViewById(R.id.tv_minutosTranvia2);
-            //mainLayoutTranvia = itemView.findViewById(R.id.mainLayoutTranvia);
+            mainLayoutTranvia = itemView.findViewById(R.id.mainLayoutTranvia);
         }
     }
 }

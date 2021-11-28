@@ -16,6 +16,13 @@ public class Tranvia {
         this.iconoTranvia = iconoTranvia;
     }
 
+    public Tranvia(String idTranvia, String tituloTranvia, String destinoTranvia1, String iconoTranvia) {
+        this.idTranvia = idTranvia;
+        this.tituloTranvia = tituloTranvia;
+        this.destinoTranvia1 = destinoTranvia1;
+        this.iconoTranvia = iconoTranvia;
+    }
+
     public Tranvia(String idTranvia, String tituloTranvia, String destinoTranvia1, Integer minutosTranvia1,
                    String destinoTranvia2, Integer minutosTranvia2, String iconoTranvia) {
         this.idTranvia = idTranvia;
