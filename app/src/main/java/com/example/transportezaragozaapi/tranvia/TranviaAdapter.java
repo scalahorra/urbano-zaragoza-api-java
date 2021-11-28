@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.example.transportezaragozaapi.R;
 
 import java.util.List;
+import java.util.Objects;
 
 public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaHolder> {
 
@@ -44,10 +45,10 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
         Glide.with(context).load(tranvia.getIconoTranvia()).into(holder.iconoTranvia);
         holder.idTranvia.setText(tranvia.getIdTranvia());
         holder.tituloTranvia.setText(tranvia.getTituloTranvia());
-        //holder.destinoTranvia1.setText(tranvia.getDestinoTranvia1());
-        //holder.minutosTranvia1.setText(tranvia.getMinutosTranvia1().toString());
-        //holder.destinoTranvia2.setText(tranvia.getDestinoTranvia2());
-        //holder.minutosTranvia2.setText(tranvia.getMinutosTranvia2().toString());
+        holder.destinoTranvia1.setText(tranvia.getDestinoTranvia1());
+        holder.minutosTranvia1.setText(tranvia.getMinutosTranvia1().toString());
+        holder.destinoTranvia2.setText(tranvia.getDestinoTranvia2());
+        holder.minutosTranvia2.setText(tranvia.getMinutosTranvia2().toString());
 
         holder.mainLayoutTranvia.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +60,10 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
 
                 bundle.putString("tituloTranvia", tranvia.getTituloTranvia());
                 bundle.putString("idTranvia", tranvia.getIdTranvia());
+                bundle.putString("destinoTranvia1", tranvia.getDestinoTranvia1());
+                bundle.putInt("minutosTranvia1", tranvia.getMinutosTranvia1());
+                bundle.putString("destinoTranvia2", tranvia.getDestinoTranvia2());
+                bundle.putInt("minutosTranvia2", tranvia.getMinutosTranvia2());
 
                 intent.putExtras(bundle);
                 context.startActivity(intent);
@@ -85,9 +90,9 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
             idTranvia = itemView.findViewById(R.id.tv_idTranvia);
             tituloTranvia = itemView.findViewById(R.id.tv_tituloTranvia);
             destinoTranvia1 = itemView.findViewById(R.id.tv_destinoTranvia1);
-            //minutosTranvia1 = itemView.findViewById(R.id.tv_minutosTranvia1);
-            //destinoTranvia2 = itemView.findViewById(R.id.tv_destinoTranvia2);
-            //minutosTranvia2 = itemView.findViewById(R.id.tv_minutosTranvia2);
+            minutosTranvia1 = itemView.findViewById(R.id.tv_minutosTranvia1);
+            destinoTranvia2 = itemView.findViewById(R.id.tv_destinoTranvia2);
+            minutosTranvia2 = itemView.findViewById(R.id.tv_minutosTranvia2);
             mainLayoutTranvia = itemView.findViewById(R.id.mainLayoutTranvia);
         }
     }

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -69,9 +70,14 @@ public class TranviaActivity extends AppCompatActivity {
                                 String idTranvia = result.getString("id");
                                 String tituloTranvia = result.getString("title");
                                 String iconoTranvia = result.getString("icon");
+                                String destinoTranvia1;
+                                Integer minutosTranvia1;
+                                String destinoTranvia2;
+                                Integer minutosTranvia2;
+
+                                Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, "null", 0, "null", 0, iconoTranvia);
 
                                 try {
-
                                     JSONArray jsonArray1 = result.getJSONArray("destinos");
 
                                     for (int x = 0; x < jsonArray1.length(); x++) {
@@ -79,26 +85,23 @@ public class TranviaActivity extends AppCompatActivity {
                                         JSONObject destinos = jsonArray1.getJSONObject(x);
 
                                         if(x==0) {
-                                            String destino1 = destinos.getString("destino");
-                                            String minutos1 = destinos.getString("minutos");
+                                            destinoTranvia1 = destinos.getString("destino");
+                                            minutosTranvia1 = destinos.getInt("minutos");
 
-                                            System.out.println("Destino 1: " + destino1);
-                                            System.out.println("Minutos 1: " + minutos1);
+                                            tranvia.setDestinoTranvia1(destinoTranvia1);
+                                            tranvia.setMinutosTranvia1(minutosTranvia1);
 
                                         } else {
-                                            String destino2 = destinos.getString("destino");
-                                            String minutos2 = destinos.getString("minutos");
+                                            destinoTranvia2 = destinos.getString("destino");
+                                            minutosTranvia2 = destinos.getInt("minutos");
 
-                                            System.out.println("Destino 2: " + destino2);
-                                            System.out.println("Minutos 2: " + minutos2);
+                                            tranvia.setDestinoTranvia2(destinoTranvia2);
+                                            tranvia.setMinutosTranvia2(minutosTranvia2);
                                         }
-
                                     }
                                 } catch (JSONException exception){
                                     exception.printStackTrace();
                                 }
-
-                                Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, iconoTranvia);
                                 tranviaList.add(tranvia);
                             }
                         } catch (JSONException e) {

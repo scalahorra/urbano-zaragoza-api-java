@@ -25,4 +25,44 @@
         android:text="@string/tv_idTranvia"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_tituloTranviaExtend" />
+
+    <TextView
+        android:id="@+id/tv_destinoTranvia1Extend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/tv_destinoTranvia1Extend"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_idTranviaExtend" />
+
+    <TextView
+        android:id="@+id/tv_minutosTranvia1Extend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_destinoTranvia1Extend" />
+
+    <TextView
+        android:id="@+id/tv_destinoTranvia2Extend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_minutosTranvia1Extend" />
+
+    <TextView
+        android:id="@+id/tv_minutosTranvia2Extend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_destinoTranvia2Extend" />
 </androidx.constraintlayout.widget.ConstraintLayout>

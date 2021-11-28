@@ -14,4 +14,6 @@
     <string name="tv_prev_id">ID:</string>
     <string name="tv_tituloTranvia">Título tranvía</string>
     <string name="tv_idTranvia">ID Tranvia</string>
+    <string name="tv_destinoTranvia1Extend">Destino tranvía 1</string>
+    <string name="tv_minutosTranvia1Extend">Minutos tranvia 1</string>
 </resources>
