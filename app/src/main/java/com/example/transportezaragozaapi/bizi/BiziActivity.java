@@ -33,7 +33,7 @@ public class BiziActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bizi);
 
-        recyclerView = findViewById(R.id.recyclerViewBizi);
+        recyclerView = findViewById(R.id.recyclerViewBicis);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

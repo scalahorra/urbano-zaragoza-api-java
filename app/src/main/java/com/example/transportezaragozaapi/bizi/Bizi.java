@@ -2,37 +2,37 @@ package com.example.transportezaragozaapi.bizi;
 
 public class Bizi {
 
-    private final String titulo;
-    private final String icono;
-    private final String id;
-    private final String ultimaActualizacion;
+    private final String tituloBici;
+    private final String iconoBici;
+    private final String idBici;
+    private final String ultActualizacionBici;
     private final Integer bicisDisponibles;
     private final Integer anclajesDisponibles;
 
     public Bizi(String titulo, String id, String icono, String ultimaActualizacion, int bicisDisponibles, int anclajesDisponibles) {
-        this.titulo = titulo;
-        this.id = id;
-        this.icono = icono;
-        this.ultimaActualizacion = ultimaActualizacion;
+        this.tituloBici = titulo;
+        this.idBici = id;
+        this.iconoBici = icono;
+        this.ultActualizacionBici = ultimaActualizacion;
         this.bicisDisponibles = bicisDisponibles;
         this.anclajesDisponibles = anclajesDisponibles;
     }
 
 
-    public String getTitulo() {
-        return titulo;
+    public String getTituloBici() {
+        return tituloBici;
     }
 
-    public String getIcono() {
-        return icono;
+    public String getIconoBici() {
+        return iconoBici;
     }
 
-    public String getId() {
-        return id;
+    public String getIdBici() {
+        return idBici;
     }
 
-    public String getUltimaActualizacion() {
-        return ultimaActualizacion;
+    public String getUltActualizacionBici() {
+        return ultActualizacionBici;
     }
 
     public Integer getBicisDisponibles() {

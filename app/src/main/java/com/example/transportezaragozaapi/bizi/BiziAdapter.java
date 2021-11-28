@@ -42,12 +42,12 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
     @Override
     public void onBindViewHolder(@NonNull BiziHolder holder, int position) {
         Bizi bizi = biziList.get(position);
-        holder.titulo.setText(bizi.getTitulo());
-        holder.id.setText(bizi.getId());
-        holder.ultimaActualizacion.setText(bizi.getUltimaActualizacion());
+        holder.titulo.setText(bizi.getTituloBici());
+        holder.id.setText(bizi.getIdBici());
+        holder.ultimaActualizacion.setText(bizi.getUltActualizacionBici());
         holder.bicisDisponibles.setText(bizi.getBicisDisponibles().toString());
         holder.anclajesDisponibles.setText(bizi.getAnclajesDisponibles().toString());
-        Glide.with(context).load(bizi.getIcono()).into(holder.icono);
+        Glide.with(context).load(bizi.getIconoBici()).into(holder.icono);
 
 
         holder.mainLayoutBizi.setOnClickListener(new View.OnClickListener() {
@@ -56,10 +56,10 @@ public class BiziAdapter extends RecyclerView.Adapter<BiziAdapter.BiziHolder> {
                 Intent intent= new Intent(context, BiziExtendidaActivity.class);
 
                 Bundle bundle = new Bundle();
-                bundle.putString("titulo", bizi.getTitulo());
-                bundle.putString("id", bizi.getId());
-                bundle.putString("icono", bizi.getIcono());
-                bundle.putString("ultimaActualizacion", bizi.getUltimaActualizacion());
+                bundle.putString("titulo", bizi.getTituloBici());
+                bundle.putString("id", bizi.getIdBici());
+                bundle.putString("icono", bizi.getIconoBici());
+                bundle.putString("ultimaActualizacion", bizi.getUltActualizacionBici());
                 bundle.putInt("bicisDisponibles", bizi.getBicisDisponibles());
                 bundle.putInt("anclajesDisponibles", bizi.getAnclajesDisponibles());
 

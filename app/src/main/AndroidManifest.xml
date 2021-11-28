@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity
+            android:name=".tranvia.TranviaActivity"
+            android:exported="true" />
+        <activity
             android:name=".bizi.BiziExtendidaActivity"
             android:exported="true" />
         <activity
