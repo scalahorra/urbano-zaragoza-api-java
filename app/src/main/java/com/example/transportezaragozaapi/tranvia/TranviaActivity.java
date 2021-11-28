@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.android.volley.Request;
@@ -11,6 +12,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
 import com.example.transportezaragozaapi.VolleySingleton;
 
@@ -43,6 +45,7 @@ public class TranviaActivity extends AppCompatActivity {
         buscarTranvias();
     }
 
+
     private void buscarTranvias() {
 
         String url = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/parada-tranvia.json";
@@ -66,11 +69,25 @@ public class TranviaActivity extends AppCompatActivity {
                                 String idTranvia = result.getString("id");
                                 String tituloTranvia = result.getString("title");
                                 String iconoTranvia = result.getString("icon");
-                                //String destinos = result.getString("destinos");
 
-                                //System.out.println(destinos);
+                                try {
 
-                                //Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, destinos, iconoTranvia);
+                                    JSONArray jsonArray1 = result.getJSONArray("destinos");
+
+                                    for (int x = 0; x < jsonArray1.length(); x++) {
+
+                                        JSONObject destinos = jsonArray1.getJSONObject(x);
+
+                                        String destino = destinos.getString("destino");
+                                        String minutos = destinos.getString("minutos");
+
+                                        System.out.println("Destino: " + destino);
+                                        System.out.println("Minutos: " + minutos);
+                                    }
+                                } catch (JSONException exception){
+
+                                }
+
                                 Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, iconoTranvia);
                                 tranviaList.add(tranvia);
                             }
@@ -89,5 +106,13 @@ public class TranviaActivity extends AppCompatActivity {
                 }
         );
         requestQueue.add(jsonObjectRequest);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent irMenu = new Intent(this, MainActivity.class);
+        startActivity(irMenu);
+        finish();
     }
 }

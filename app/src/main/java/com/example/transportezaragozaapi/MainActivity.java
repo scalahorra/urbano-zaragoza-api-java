@@ -22,10 +22,12 @@ public class MainActivity extends AppCompatActivity {
     public void irBizi(View view) {
         Intent irBizi = new Intent(this, BiziActivity.class);
         startActivity(irBizi);
+        finish();
     }
 
     public void irTranvia(View view) {
         Intent irTranvia = new Intent(this, TranviaActivity.class);
         startActivity(irTranvia);
+        finish();
     }
 }

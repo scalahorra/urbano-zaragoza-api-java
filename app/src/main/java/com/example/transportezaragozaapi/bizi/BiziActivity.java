@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -12,6 +13,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
 import com.example.transportezaragozaapi.VolleySingleton;
 
@@ -90,5 +92,12 @@ public class BiziActivity extends AppCompatActivity {
                 }
         );
         requestQueue.add(jsonObjectRequest);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent irMenu = new Intent(this, MainActivity.class);
+        startActivity(irMenu);
+        finish();
     }
 }

@@ -2,6 +2,7 @@ package com.example.transportezaragozaapi.tranvia;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -24,5 +25,12 @@ public class TranviaExtendidoActivity extends AppCompatActivity {
 
         tituloTranvia.setText(tTituloTranvia);
         idTranvia.setText(tIdTranvia);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent irTranvias = new Intent(this, TranviaActivity.class);
+        startActivity(irTranvias);
+        finish();
     }
 }
