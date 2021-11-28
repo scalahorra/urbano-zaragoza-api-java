@@ -4,11 +4,17 @@ public class Tranvia {
 
     private final String idTranvia;
     private final String tituloTranvia;
-    private final String destinoTranvia1;
-    private final Integer minutosTranvia1;
-    private final String destinoTranvia2;
-    private final Integer minutosTranvia2;
+    private  String destinoTranvia1;
+    private  Integer minutosTranvia1;
+    private  String destinoTranvia2;
+    private  Integer minutosTranvia2;
     private final String iconoTranvia;
+
+    public Tranvia(String idTranvia, String tituloTranvia, String iconoTranvia) {
+        this.idTranvia = idTranvia;
+        this.tituloTranvia = tituloTranvia;
+        this.iconoTranvia = iconoTranvia;
+    }
 
     public Tranvia(String idTranvia, String tituloTranvia, String destinoTranvia1, Integer minutosTranvia1,
                    String destinoTranvia2, Integer minutosTranvia2, String iconoTranvia) {

@@ -19,29 +19,8 @@ import java.util.List;
 
 public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaHolder> {
 
-    Context context;
-    List<Tranvia> tranviaList;
-
-    public class TranviaHolder extends RecyclerView.ViewHolder {
-
-        ImageView iconoTranvia;
-        TextView idTranvia, tituloTranvia, destinoTranvia1, minutosTranvia1, destinoTranvia2, minutosTranvia2;
-        ConstraintLayout mainLayoutTranvia;
-
-
-        public TranviaHolder(@NonNull View itemView) {
-            super(itemView);
-
-            iconoTranvia = itemView.findViewById(R.id.iv_iconoTranvia);
-            idTranvia = itemView.findViewById(R.id.tv_idTranvia);
-            tituloTranvia = itemView.findViewById(R.id.tv_tituloTranvia);
-            destinoTranvia1 = itemView.findViewById(R.id.tv_destinoTranvia1);
-            minutosTranvia1 = itemView.findViewById(R.id.tv_minutosTranvia1);
-            destinoTranvia2 = itemView.findViewById(R.id.tv_destinoTranvia2);
-            minutosTranvia2 = itemView.findViewById(R.id.tv_minutosTranvia2);
-            mainLayoutTranvia = itemView.findViewById(R.id.mainLayoutTranvia);
-        }
-    }
+    private Context context;
+    private List<Tranvia> tranviaList;
 
     public TranviaAdapter(Context context, List<Tranvia> tranvias) {
         this.context = context;
@@ -63,10 +42,10 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
         Glide.with(context).load(tranvia.getIconoTranvia()).into(holder.iconoTranvia);
         holder.idTranvia.setText(tranvia.getIdTranvia());
         holder.tituloTranvia.setText(tranvia.getTituloTranvia());
-        holder.destinoTranvia1.setText(tranvia.getDestinoTranvia1());
-        holder.minutosTranvia1.setText(tranvia.getMinutosTranvia1().toString());
-        holder.destinoTranvia2.setText(tranvia.getDestinoTranvia2());
-        holder.minutosTranvia2.setText(tranvia.getMinutosTranvia2().toString());
+        //holder.destinoTranvia1.setText(tranvia.getDestinoTranvia1());
+        //holder.minutosTranvia1.setText(tranvia.getMinutosTranvia1().toString());
+        //holder.destinoTranvia2.setText(tranvia.getDestinoTranvia2());
+        //holder.minutosTranvia2.setText(tranvia.getMinutosTranvia2().toString());
     }
 
     @Override
@@ -74,4 +53,24 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
         return tranviaList.size();
     }
 
+    public class TranviaHolder extends RecyclerView.ViewHolder {
+
+        ImageView iconoTranvia;
+        TextView idTranvia, tituloTranvia, destinoTranvia1, minutosTranvia1, destinoTranvia2, minutosTranvia2;
+        ConstraintLayout mainLayoutTranvia;
+
+
+        public TranviaHolder(@NonNull View itemView) {
+            super(itemView);
+
+            iconoTranvia = itemView.findViewById(R.id.iv_iconoTranvia);
+            idTranvia = itemView.findViewById(R.id.tv_idTranvia);
+            tituloTranvia = itemView.findViewById(R.id.tv_tituloTranvia);
+            //destinoTranvia1 = itemView.findViewById(R.id.tv_destinoTranvia1);
+            //minutosTranvia1 = itemView.findViewById(R.id.tv_minutosTranvia1);
+            //destinoTranvia2 = itemView.findViewById(R.id.tv_destinoTranvia2);
+            //minutosTranvia2 = itemView.findViewById(R.id.tv_minutosTranvia2);
+            //mainLayoutTranvia = itemView.findViewById(R.id.mainLayoutTranvia);
+        }
+    }
 }
