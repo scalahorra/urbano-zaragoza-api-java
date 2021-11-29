@@ -1,42 +1,30 @@
-package com.example.transportezaragozaapi.bizi;
+package com.example.transportezaragozaapi.bici;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import android.widget.ImageView;
-import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.example.transportezaragozaapi.R;
-import com.example.transportezaragozaapi.VolleySingleton;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-public class BiziExtendidaActivity extends AppCompatActivity {
+public class BiciExtendidaActivity extends AppCompatActivity {
 
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bizi_extendida);
+        setContentView(R.layout.activity_bici_extendida);
 
         ImageView imageView = findViewById(R.id.iv_iconExtendido);
-        TextView titulo = findViewById(R.id.tv_titleBiziExtendida);
-        TextView id = findViewById(R.id.tv_idBiziExtendida);
+        TextView titulo = findViewById(R.id.tv_titleBiciExtendida);
+        TextView id = findViewById(R.id.tv_idBiciExtendida);
         TextView ultimaActualizacion = findViewById(R.id.tv_ultimaActualizacionExtendida);
         TextView bicisDisponibles = findViewById(R.id.tv_bDisponiblesBiziExtendida);
-        TextView anclajesDisponibles = findViewById(R.id.tv_aBiziExtendida);
+        TextView anclajesDisponibles = findViewById(R.id.tv_aBiciExtendida);
 
         Bundle bundle= getIntent().getExtras();
 
@@ -57,7 +45,7 @@ public class BiziExtendidaActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent irLista = new Intent(this, BiziActivity.class);
+        Intent irLista = new Intent(this, BiciActivity.class);
         startActivity(irLista);
         finish();
     }

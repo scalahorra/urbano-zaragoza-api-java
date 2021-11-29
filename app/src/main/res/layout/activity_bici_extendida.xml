@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".bizi.BiziExtendidaActivity">
+    tools:context=".bici.BiciExtendidaActivity">
 
     <TextView
-        android:id="@+id/tv_titleBiziExtendida"
+        android:id="@+id/tv_titleBiciExtendida"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -27,17 +27,17 @@
         android:layout_marginTop="10dp"
         android:text="@string/tv_prev_id"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_titleBiziExtendida" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_titleBiciExtendida" />
 
     <TextView
-        android:id="@+id/tv_idBiziExtendida"
+        android:id="@+id/tv_idBiciExtendida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/tv_idBiziExtendida"
         app:layout_constraintStart_toEndOf="@+id/tv_prev_id"
-        app:layout_constraintTop_toBottomOf="@+id/tv_titleBiziExtendida" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_titleBiciExtendida" />
 
     <TextView
         android:id="@+id/tv_prev_biciDisponible"
@@ -57,7 +57,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/tv_bDisponibleBiziExtendida"
         app:layout_constraintStart_toEndOf="@+id/tv_prev_biciDisponible"
-        app:layout_constraintTop_toBottomOf="@+id/tv_idBiziExtendida" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_idBiciExtendida" />
 
     <TextView
         android:id="@+id/tv_prev_anclaDisponibles"
@@ -70,7 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_prev_biciDisponible" />
 
     <TextView
-        android:id="@+id/tv_aBiziExtendida"
+        android:id="@+id/tv_aBiciExtendida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

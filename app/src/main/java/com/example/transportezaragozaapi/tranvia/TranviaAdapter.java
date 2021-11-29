@@ -67,6 +67,7 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
 
                 intent.putExtras(bundle);
                 context.startActivity(intent);
+                ((TranviaActivity) context).finish();
             }
         });
     }

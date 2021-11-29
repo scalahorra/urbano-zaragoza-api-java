@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.transportezaragozaapi.bizi.BiziActivity;
+import com.example.transportezaragozaapi.bici.BiciActivity;
 import com.example.transportezaragozaapi.tranvia.TranviaActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,15 +19,20 @@ public class MainActivity extends AppCompatActivity {
 
 
     // Metodos para ir a las actividades
-    public void irBizi(View view) {
-        Intent irBizi = new Intent(this, BiziActivity.class);
-        startActivity(irBizi);
+    public void irBici(View view) {
+        Intent irBici = new Intent(this, BiciActivity.class);
+        startActivity(irBici);
         finish();
     }
 
     public void irTranvia(View view) {
         Intent irTranvia = new Intent(this, TranviaActivity.class);
         startActivity(irTranvia);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
         finish();
     }
 }

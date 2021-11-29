@@ -1,6 +1,6 @@
-package com.example.transportezaragozaapi.bizi;
+package com.example.transportezaragozaapi.bici;
 
-public class Bizi {
+public class Bici {
 
     private final String tituloBici;
     private final String iconoBici;
@@ -9,7 +9,7 @@ public class Bizi {
     private final Integer bicisDisponibles;
     private final Integer anclajesDisponibles;
 
-    public Bizi(String titulo, String id, String icono, String ultimaActualizacion, int bicisDisponibles, int anclajesDisponibles) {
+    public Bici(String titulo, String id, String icono, String ultimaActualizacion, int bicisDisponibles, int anclajesDisponibles) {
         this.tituloBici = titulo;
         this.idBici = id;
         this.iconoBici = icono;

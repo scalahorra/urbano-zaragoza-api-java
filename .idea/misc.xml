@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/sergi/AndroidStudioProjects/TransporteZaragozaAPI/app/src/main/res/layout/activity_bici.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/sergi/AndroidStudioProjects/TransporteZaragozaAPI/app/src/main/res/layout/activity_bici_extendida.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/sergi/AndroidStudioProjects/TransporteZaragozaAPI/app/src/main/res/layout/activity_bizi.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/sergi/AndroidStudioProjects/TransporteZaragozaAPI/app/src/main/res/layout/activity_bizi_extendida.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/sergi/AndroidStudioProjects/TransporteZaragozaAPI/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/sergi/AndroidStudioProjects/TransporteZaragozaAPI/app/src/main/res/layout/activity_tranvia.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/sergi/AndroidStudioProjects/TransporteZaragozaAPI/app/src/main/res/layout/activity_tranvia_extendido.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/sergi/AndroidStudioProjects/TransporteZaragozaAPI/app/src/main/res/layout/bici.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/sergi/AndroidStudioProjects/TransporteZaragozaAPI/app/src/main/res/layout/bizi.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/sergi/AndroidStudioProjects/TransporteZaragozaAPI/app/src/main/res/layout/tranvia.xml" value="0.36666666666666664" />
       </map>
