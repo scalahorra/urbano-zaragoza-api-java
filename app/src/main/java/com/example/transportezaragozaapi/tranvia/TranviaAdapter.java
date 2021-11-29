@@ -42,7 +42,6 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
     public void onBindViewHolder(@NonNull TranviaHolder holder, int position) {
 
         Tranvia tranvia = tranviaList.get(position);
-        Glide.with(context).load(tranvia.getIconoTranvia()).into(holder.iconoTranvia);
         holder.idTranvia.setText(tranvia.getIdTranvia());
         holder.tituloTranvia.setText(tranvia.getTituloTranvia());
         holder.destinoTranvia1.setText(tranvia.getDestinoTranvia1());
@@ -79,7 +78,6 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
 
     public class TranviaHolder extends RecyclerView.ViewHolder {
 
-        ImageView iconoTranvia;
         TextView idTranvia, tituloTranvia, destinoTranvia1, minutosTranvia1, destinoTranvia2, minutosTranvia2;
         ConstraintLayout mainLayoutTranvia;
 
@@ -87,7 +85,6 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
         public TranviaHolder(@NonNull View itemView) {
             super(itemView);
 
-            iconoTranvia = itemView.findViewById(R.id.iv_iconoTranvia);
             idTranvia = itemView.findViewById(R.id.tv_idTranvia);
             tituloTranvia = itemView.findViewById(R.id.tv_tituloTranvia);
             destinoTranvia1 = itemView.findViewById(R.id.tv_destinoTranvia1);

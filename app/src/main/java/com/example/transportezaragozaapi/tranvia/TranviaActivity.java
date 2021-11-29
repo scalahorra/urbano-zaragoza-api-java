@@ -69,13 +69,12 @@ public class TranviaActivity extends AppCompatActivity {
 
                                 String idTranvia = result.getString("id");
                                 String tituloTranvia = result.getString("title");
-                                String iconoTranvia = result.getString("icon");
                                 String destinoTranvia1;
                                 Integer minutosTranvia1;
                                 String destinoTranvia2;
                                 Integer minutosTranvia2;
 
-                                Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, "null", 0, "null", 0, iconoTranvia);
+                                Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, "null", 0, "null", 0);
 
                                 try {
                                     JSONArray jsonArray1 = result.getJSONArray("destinos");

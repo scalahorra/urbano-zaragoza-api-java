@@ -8,17 +8,15 @@ public class Tranvia {
     private Integer minutosTranvia1;
     private String destinoTranvia2;
     private Integer minutosTranvia2;
-    private final String iconoTranvia;
 
     public Tranvia(String idTranvia, String tituloTranvia, String destinoTranvia1, Integer minutosTranvia1,
-                   String destinoTranvia2, Integer minutosTranvia2, String iconoTranvia) {
+                   String destinoTranvia2, Integer minutosTranvia2) {
         this.idTranvia = idTranvia;
         this.tituloTranvia = tituloTranvia;
         this.destinoTranvia1 = destinoTranvia1;
         this.minutosTranvia1 = minutosTranvia1;
         this.destinoTranvia2 = destinoTranvia2;
         this.minutosTranvia2 = minutosTranvia2;
-        this.iconoTranvia = iconoTranvia;
     }
 
     public String getIdTranvia() {
@@ -59,9 +57,5 @@ public class Tranvia {
 
     public void setMinutosTranvia2(Integer minutosTranvia2) {
         this.minutosTranvia2 = minutosTranvia2;
-    }
-
-    public String getIconoTranvia() {
-        return iconoTranvia;
     }
 }
