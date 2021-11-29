@@ -3,16 +3,14 @@ package com.example.transportezaragozaapi.bici;
 public class Bici {
 
     private final String tituloBici;
-    private final String iconoBici;
     private final String idBici;
     private final String ultActualizacionBici;
     private final Integer bicisDisponibles;
     private final Integer anclajesDisponibles;
 
-    public Bici(String titulo, String id, String icono, String ultimaActualizacion, int bicisDisponibles, int anclajesDisponibles) {
+    public Bici(String titulo, String id, String ultimaActualizacion, int bicisDisponibles, int anclajesDisponibles) {
         this.tituloBici = titulo;
         this.idBici = id;
-        this.iconoBici = icono;
         this.ultActualizacionBici = ultimaActualizacion;
         this.bicisDisponibles = bicisDisponibles;
         this.anclajesDisponibles = anclajesDisponibles;
@@ -21,10 +19,6 @@ public class Bici {
 
     public String getTituloBici() {
         return tituloBici;
-    }
-
-    public String getIconoBici() {
-        return iconoBici;
     }
 
     public String getIdBici() {

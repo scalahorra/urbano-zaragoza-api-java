@@ -19,7 +19,6 @@ public class BiciExtendidaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bici_extendida);
 
-        ImageView imageView = findViewById(R.id.iv_iconExtendido);
         TextView titulo = findViewById(R.id.tv_titleBiciExtendida);
         TextView id = findViewById(R.id.tv_idBiciExtendida);
         TextView ultimaActualizacion = findViewById(R.id.tv_ultimaActualizacionExtendida);
@@ -30,14 +29,12 @@ public class BiciExtendidaActivity extends AppCompatActivity {
 
         String eTitulo = bundle.getString("titulo");
         String eId = bundle.getString("id");
-        String eIcono = bundle.getString("icono");
         String eUltimaActualizacion = bundle.getString("ultimaActualizacion");
         int eBicisDisponibles = bundle.getInt("bicisDisponibles");
         int eAnclajesDisponibles = bundle.getInt("anclajesDisponibles");
 
         titulo.setText(eTitulo);
         id.setText(eId);
-        Glide.with(this).load(eIcono).into(imageView);
         ultimaActualizacion.setText(eUltimaActualizacion);
         bicisDisponibles.setText(Integer.toString(eBicisDisponibles));
         anclajesDisponibles.setText(Integer.toString(eAnclajesDisponibles));

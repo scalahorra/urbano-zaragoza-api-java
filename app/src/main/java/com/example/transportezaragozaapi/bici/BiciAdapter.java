@@ -41,24 +41,23 @@ public class BiciAdapter extends RecyclerView.Adapter<BiciAdapter.BiciHolder> {
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull BiciHolder holder, int position) {
+
         Bici bici = biciList.get(position);
         holder.titulo.setText(bici.getTituloBici());
         holder.id.setText(bici.getIdBici());
         holder.ultimaActualizacion.setText(bici.getUltActualizacionBici());
         holder.bicisDisponibles.setText(bici.getBicisDisponibles().toString());
         holder.anclajesDisponibles.setText(bici.getAnclajesDisponibles().toString());
-        Glide.with(context).load(bici.getIconoBici()).into(holder.icono);
-
 
         holder.mainLayoutBici.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent= new Intent(context, BiciExtendidaActivity.class);
 
                 Bundle bundle = new Bundle();
                 bundle.putString("titulo", bici.getTituloBici());
                 bundle.putString("id", bici.getIdBici());
-                bundle.putString("icono", bici.getIconoBici());
                 bundle.putString("ultimaActualizacion", bici.getUltActualizacionBici());
                 bundle.putInt("bicisDisponibles", bici.getBicisDisponibles());
                 bundle.putInt("anclajesDisponibles", bici.getAnclajesDisponibles());
@@ -90,7 +89,6 @@ public class BiciAdapter extends RecyclerView.Adapter<BiciAdapter.BiciHolder> {
             ultimaActualizacion = itemView.findViewById(R.id.tv_ultimaActualizacionBici);
             bicisDisponibles = itemView.findViewById(R.id.tv_bicisBici);
             anclajesDisponibles = itemView.findViewById(R.id.tv_anclajesBici);
-
             mainLayoutBici = itemView.findViewById(R.id.mainLayoutBici);
         }
     }

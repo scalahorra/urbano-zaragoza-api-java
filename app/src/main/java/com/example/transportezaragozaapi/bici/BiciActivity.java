@@ -58,18 +58,22 @@ public class BiciActivity extends AppCompatActivity {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+
                         try {
+
                             JSONArray jsonArray = response.getJSONArray("result");
+
                             for(int i=0; i<jsonArray.length(); i++) {
+
                                 JSONObject result = jsonArray.getJSONObject(i);
+
                                 String titulo = result.getString("title");
-                                String icono = "https:" + result.getString("icon");
                                 String id = result.getString("id");
                                 String ultimaActualizacion = result.getString("lastUpdated");
                                 Integer bicisDisponibles = result.getInt("bicisDisponibles");
                                 Integer anclajesDisponibles = result.getInt("anclajesDisponibles");
 
-                                Bici bici = new Bici(titulo, id, icono, ultimaActualizacion, bicisDisponibles, anclajesDisponibles);
+                                Bici bici = new Bici(titulo, id, ultimaActualizacion, bicisDisponibles, anclajesDisponibles);
                                 biciList.add(bici);
                             }
                         } catch (JSONException e) {
