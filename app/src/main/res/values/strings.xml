@@ -2,7 +2,7 @@
     <string name="app_name">Transportes de Zaragoza</string>
     <string name="tv_titleMain">Aplicación en Construcción</string>
     <string name="tv_titleBizi">Título estación</string>
-    <string name="btn_irBicicletas">Estaciones Bizi</string>
+    <string name="btn_irBicicletas">Estaciones Bici</string>
     <string name="tv_idBiziExtendida">ID Estación</string>
     <string name="tv_bDisponibleBiziExtendida">Bicicletas disponibles</string>
     <string name="tv_aBiziExtendida">Anclajes disponibles</string>

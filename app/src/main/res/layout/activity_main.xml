@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azul_fondo"
+    android:background="@color/azulado1"
     tools:context=".MainActivity">
 
     <TextView
@@ -35,9 +35,9 @@
 
             <Button
                 android:id="@+id/btn_irBicicletas"
-                android:layout_width="250dp"
+                android:layout_width="200dp"
                 android:layout_height="60dp"
-                android:backgroundTint="@color/cool_blue"
+                android:backgroundTint="@color/amarronado2"
                 android:onClick="irBici"
                 android:text="@string/btn_irBicicletas"
                 android:textColor="#FFFFFF"
@@ -54,7 +54,7 @@
                 android:id="@+id/btn_tranvia"
                 android:layout_width="250dp"
                 android:layout_height="60dp"
-                android:backgroundTint="@color/cool_blue"
+                android:backgroundTint="@color/amarronado2"
                 android:onClick="irTranvia"
                 android:text="@string/btn_tranvia"
                 android:textColor="#FFFFFF"
@@ -71,11 +71,12 @@
                 android:id="@+id/btn_bus"
                 android:layout_width="250dp"
                 android:layout_height="60dp"
-                android:backgroundTint="@color/cool_blue"
+                android:backgroundTint="@color/amarronado1"
                 android:text="@string/btn_bus"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
         </TableRow>
 
     </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
