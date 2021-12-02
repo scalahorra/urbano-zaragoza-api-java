@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.transportezaragozaapi.bici.BiciActivity;
+import com.example.transportezaragozaapi.bus.BusActivity;
 import com.example.transportezaragozaapi.tranvia.TranviaActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +29,12 @@ public class MainActivity extends AppCompatActivity {
     public void irTranvia(View view) {
         Intent irTranvia = new Intent(this, TranviaActivity.class);
         startActivity(irTranvia);
+        finish();
+    }
+
+    public void irBus(View view) {
+        Intent irBus = new Intent(this, BusActivity.class);
+        startActivity(irBus);
         finish();
     }
 

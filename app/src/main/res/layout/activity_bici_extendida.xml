@@ -29,6 +29,7 @@
                 android:layout_marginTop="35dp"
                 android:gravity="center"
                 android:text="@string/tv_titleBizi"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:text="@string/tv_prev_id"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tv_idBiciExtendida" />
 
@@ -48,6 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_idBiziExtendida"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -58,6 +61,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_ultimaActualizacionExtendida"
+        android:textColor="@color/white"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -77,6 +82,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:text="@string/tv_prev_bicisDisponibles"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
@@ -87,6 +94,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:text="@string/tv_bDisponibleBiziExtendida"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/tv_prev_biciDisponible"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
@@ -97,6 +106,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/tv_prev_anclajesDisponibles"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_prev_biciDisponible" />
 
@@ -107,6 +118,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:text="@string/tv_aBiziExtendida"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/tv_prev_anclaDisponibles"
         app:layout_constraintTop_toBottomOf="@+id/tv_bDisponiblesBiziExtendida" />
 </androidx.constraintlayout.widget.ConstraintLayout>
