@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.transportezaragozaapi.bici.BiciActivity;
-import com.example.transportezaragozaapi.bus.BusActivity;
+import com.example.transportezaragozaapi.bus.PosteActivity;
 import com.example.transportezaragozaapi.tranvia.TranviaActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void irBus(View view) {
-        Intent irBus = new Intent(this, BusActivity.class);
+        Intent irBus = new Intent(this, PosteActivity.class);
         startActivity(irBus);
         finish();
     }

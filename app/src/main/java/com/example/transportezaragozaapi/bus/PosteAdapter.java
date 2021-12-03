@@ -3,11 +3,9 @@ package com.example.transportezaragozaapi.bus;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +13,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.transportezaragozaapi.R;
-import com.example.transportezaragozaapi.tranvia.TranviaAdapter;
 
 import java.util.List;
 
@@ -44,22 +41,22 @@ public class PosteAdapter extends RecyclerView.Adapter<PosteAdapter.PosteHolder>
     public void onBindViewHolder(@NonNull PosteAdapter.PosteHolder holder, int position) {
 
         Poste poste = posteList.get(position);
-        holder.idPoste.setText(poste.getIdPoste());
+        holder.idPoste.setText(poste.getUrlPoste());
         holder.tituloPoste.setText(poste.getTituloPoste());
 
         holder.mainLayoutPoste.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(context, ParadaExtendidaActivity.class);
+                Intent intent = new Intent(context, Poste2Activity.class);
 
                 Bundle bundle = new Bundle();
 
-                bundle.putString("idPoste", poste.getIdPoste());
+                bundle.putString("idPoste", poste.getUrlPoste());
 
                 intent.putExtras(bundle);
                 context.startActivity(intent);
-                ((BusActivity) context).finish();
+                ((PosteActivity) context).finish();
             }
         });
     }

@@ -13,10 +13,10 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".bus.ParadaExtendidaActivity"
+            android:name=".bus.Poste2Activity"
             android:exported="true" />
         <activity
-            android:name=".bus.BusActivity"
+            android:name=".bus.PosteActivity"
             android:exported="true" />
         <activity
             android:name=".tranvia.TranviaExtendidoActivity"
