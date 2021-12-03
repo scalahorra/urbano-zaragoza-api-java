@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azul2"
-    android:backgroundTint="@color/azul2"
+    android:backgroundTint="@color/white"
     app:layout_constrainedHeight="true"
     tools:context=".bici.BiciExtendidaActivity">
 
@@ -61,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tv_ultimaActualizacionExtendida"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -82,7 +81,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:text="@string/tv_prev_bicisDisponibles"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
@@ -94,7 +93,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:text="@string/tv_bDisponibleBiziExtendida"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/tv_prev_biciDisponible"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
@@ -106,7 +105,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/tv_prev_anclajesDisponibles"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_prev_biciDisponible" />
@@ -118,7 +117,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:text="@string/tv_aBiziExtendida"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/tv_prev_anclaDisponibles"
         app:layout_constraintTop_toBottomOf="@+id/tv_bDisponiblesBiziExtendida" />

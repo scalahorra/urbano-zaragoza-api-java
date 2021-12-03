@@ -27,4 +27,10 @@
 
     <color name="amarronado1">#A3613B</color>
     <color name="amarronado2">#F0AD86</color>
+
+
+
+    <color name="colorPrincipal">#476DF5</color>
+    <color name="colorSecundario">#4D5DCD</color>
+    <color name="colorTerciario">#4A93AC</color>
 </resources>
