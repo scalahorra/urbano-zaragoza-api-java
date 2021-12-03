@@ -15,7 +15,7 @@ public class Poste2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poste2);
 
-        TextView urlPoste2 = findViewById(R.id.idPosteExt2);
+        TextView urlPoste2 = findViewById(R.id.urlPoste);
 
         Bundle bundle = getIntent().getExtras();
 
