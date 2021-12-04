@@ -44,7 +44,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/urlPoste"
+        android:id="@+id/urlPoste2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Direccion"
