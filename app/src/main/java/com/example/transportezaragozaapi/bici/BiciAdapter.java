@@ -14,15 +14,15 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.transportezaragozaapi.R;
 
 import java.util.List;
 
 public class BiciAdapter extends RecyclerView.Adapter<BiciAdapter.BiciHolder> {
 
-    private Context context;
-    private List<Bici> biciList;
+    private final Context context;
+    private final List<Bici> biciList;
+
 
     public BiciAdapter(Context context, List<Bici> bicis) {
         this.context = context;
@@ -38,14 +38,15 @@ public class BiciAdapter extends RecyclerView.Adapter<BiciAdapter.BiciHolder> {
         return new BiciHolder(view);
     }
 
+
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull BiciHolder holder, int position) {
 
         Bici bici = biciList.get(position);
-        holder.titulo.setText(bici.getTituloBici());
-        holder.id.setText(bici.getIdBici());
-        holder.ultimaActualizacion.setText(bici.getUltActualizacionBici());
+        holder.tituloBici.setText(bici.getTituloBici());
+        holder.idBici.setText(bici.getIdBici());
+        holder.ultActualizacionBici.setText(bici.getUltActualizacionBici());
         holder.bicisDisponibles.setText(bici.getBicisDisponibles().toString());
         holder.anclajesDisponibles.setText(bici.getAnclajesDisponibles().toString());
 
@@ -53,21 +54,23 @@ public class BiciAdapter extends RecyclerView.Adapter<BiciAdapter.BiciHolder> {
             @Override
             public void onClick(View view) {
 
-                Intent intent= new Intent(context, BiciExtendidaActivity.class);
+                Intent irBici2 = new Intent(context, Bici2Activity.class);
 
-                Bundle bundle = new Bundle();
-                bundle.putString("titulo", bici.getTituloBici());
-                bundle.putString("id", bici.getIdBici());
-                bundle.putString("ultimaActualizacion", bici.getUltActualizacionBici());
-                bundle.putInt("bicisDisponibles", bici.getBicisDisponibles());
-                bundle.putInt("anclajesDisponibles", bici.getAnclajesDisponibles());
+                Bundle bundleBici = new Bundle();
 
-                intent.putExtras(bundle);
-                context.startActivity(intent);
+                bundleBici.putString("tituloBici", bici.getTituloBici());
+                bundleBici.putString("idBici", bici.getIdBici());
+                bundleBici.putString("ultActualizacionBici", bici.getUltActualizacionBici());
+                bundleBici.putInt("bicisDisponibles", bici.getBicisDisponibles());
+                bundleBici.putInt("anclajesDisponibles", bici.getAnclajesDisponibles());
+
+                irBici2.putExtras(bundleBici);
+                context.startActivity(irBici2);
                 ((BiciActivity) context).finish();
             }
         });
     }
+
 
     @Override
     public int getItemCount() {
@@ -76,19 +79,19 @@ public class BiciAdapter extends RecyclerView.Adapter<BiciAdapter.BiciHolder> {
 
     public class BiciHolder extends RecyclerView.ViewHolder {
 
-        ImageView icono;
-        TextView titulo, id, bicisDisponibles, anclajesDisponibles, ultimaActualizacion;
+        ImageView iconoBici;
+        TextView tituloBici, idBici, bicisDisponibles, anclajesDisponibles, ultActualizacionBici;
         ConstraintLayout mainLayoutBici;
 
         public BiciHolder(@NonNull View itemView) {
             super(itemView);
 
-            icono = itemView.findViewById(R.id.imageView);
-            titulo = itemView.findViewById(R.id.tv_titleBici);
-            id = itemView.findViewById(R.id.tv_idBici);
-            ultimaActualizacion = itemView.findViewById(R.id.tv_ultimaActualizacionBici);
-            bicisDisponibles = itemView.findViewById(R.id.tv_bicisBici);
-            anclajesDisponibles = itemView.findViewById(R.id.tv_anclajesBici);
+            iconoBici = itemView.findViewById(R.id.iconoBici_iv);
+            tituloBici = itemView.findViewById(R.id.tituloBici_tv);
+            idBici = itemView.findViewById(R.id.idBici_tv);
+            ultActualizacionBici = itemView.findViewById(R.id.ultActualizacionBici_tv);
+            bicisDisponibles = itemView.findViewById(R.id.bicisDisponibles_tv);
+            anclajesDisponibles = itemView.findViewById(R.id.anclajesDisponibles_tv);
             mainLayoutBici = itemView.findViewById(R.id.mainLayoutBici);
         }
     }

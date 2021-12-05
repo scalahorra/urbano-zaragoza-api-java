@@ -25,7 +25,7 @@
             android:name=".tranvia.TranviaActivity"
             android:exported="true" />
         <activity
-            android:name=".bici.BiciExtendidaActivity"
+            android:name=".bici.Bici2Activity"
             android:exported="true" />
         <activity
             android:name=".bici.BiciActivity"

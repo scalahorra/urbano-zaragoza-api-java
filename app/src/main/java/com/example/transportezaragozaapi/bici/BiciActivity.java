@@ -25,8 +25,8 @@ import java.util.List;
 
 public class BiciActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private RequestQueue requestQueue;
+    private RecyclerView recyclerViewBici;
+    private RequestQueue peticionBici;
     private List<Bici> biciList;
 
     @Override
@@ -34,11 +34,11 @@ public class BiciActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bici);
 
-        recyclerView = findViewById(R.id.recyclerViewBicis);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewBici = findViewById(R.id.recyclerViewBicis);
+        recyclerViewBici.setHasFixedSize(true);
+        recyclerViewBici.setLayoutManager(new LinearLayoutManager(this));
 
-        requestQueue = VolleySingleton.getInstance(this).getRequestQueue();
+        peticionBici = VolleySingleton.getInstance(this).getRequestQueue();
 
         biciList = new ArrayList<>();
 
@@ -49,11 +49,11 @@ public class BiciActivity extends AppCompatActivity {
     // Metodo sacar todas las
     private void buscarBici() {
 
-        String url = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/estacion-bicicleta.json?sort=id%20asc";
+        String urlBici = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/estacion-bicicleta.json?sort=id%20asc";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                url,
+                urlBici,
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -67,20 +67,20 @@ public class BiciActivity extends AppCompatActivity {
 
                                 JSONObject result = jsonArray.getJSONObject(i);
 
-                                String titulo = result.getString("title");
-                                String id = result.getString("id");
-                                String ultimaActualizacion = result.getString("lastUpdated");
-                                Integer bicisDisponibles = result.getInt("bicisDisponibles");
-                                Integer anclajesDisponibles = result.getInt("anclajesDisponibles");
+                                String tituloBici = result.getString("title");
+                                String idBici = result.getString("id");
+                                String ultActualizacionBici = result.getString("lastUpdated");
+                                int bicisDisponibles = result.getInt("bicisDisponibles");
+                                int anclajesDisponibles = result.getInt("anclajesDisponibles");
 
-                                Bici bici = new Bici(titulo, id, ultimaActualizacion, bicisDisponibles, anclajesDisponibles);
+                                Bici bici = new Bici(tituloBici, idBici, ultActualizacionBici, bicisDisponibles, anclajesDisponibles);
                                 biciList.add(bici);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                         BiciAdapter adapter = new BiciAdapter(BiciActivity.this, biciList);
-                        recyclerView.setAdapter(adapter);
+                        recyclerViewBici.setAdapter(adapter);
                     }
                 },
                 new Response.ErrorListener() {
@@ -90,7 +90,7 @@ public class BiciActivity extends AppCompatActivity {
                     }
                 }
         );
-        requestQueue.add(jsonObjectRequest);
+        peticionBici.add(jsonObjectRequest);
     }
 
     @Override
