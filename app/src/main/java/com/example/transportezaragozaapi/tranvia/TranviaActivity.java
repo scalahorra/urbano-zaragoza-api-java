@@ -69,9 +69,9 @@ public class TranviaActivity extends AppCompatActivity {
                                 String idTranvia = result.getString("id");
                                 String tituloTranvia = result.getString("title");
                                 String destinoTranvia1;
-                                Integer minutosTranvia1;
+                                int minutosTranvia1;
                                 String destinoTranvia2;
-                                Integer minutosTranvia2;
+                                int minutosTranvia2;
 
                                 Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, "", 0, "", 0);
 

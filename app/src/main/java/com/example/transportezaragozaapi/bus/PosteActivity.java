@@ -6,6 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -30,6 +34,10 @@ public class PosteActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private List<Poste> posteList;
 
+    EditText inputLinea;
+    Button btnLinea;
+    String numeroLinea;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,17 +52,30 @@ public class PosteActivity extends AppCompatActivity {
 
         posteList = new ArrayList<>();
 
-        buscarPoste();
+
+
+        inputLinea = findViewById(R.id.inputLinea);
+        btnLinea = findViewById(R.id.btnLinea);
+        btnLinea.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                numeroLinea = inputLinea.getText().toString();
+
+                posteList.clear();
+
+                buscarPoste(numeroLinea);
+            }
+        });
     }
 
 
-    private void buscarPoste() {
+    private void buscarPoste(String numeroLinea) {
 
-        String url = "https://www.zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/linea-autobus/41.json";
+        String urlPoste = "https://www.zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/linea-autobus/" + numeroLinea + ".json";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                url,
+                urlPoste,
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override

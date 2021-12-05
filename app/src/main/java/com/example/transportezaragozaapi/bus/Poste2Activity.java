@@ -41,6 +41,7 @@ public class Poste2Activity extends AppCompatActivity {
         TextView idPoste2 = findViewById(R.id.tv_idPoste2);
         TextView tituloPoste2 = findViewById(R.id.tv_tituloPoste2);
 
+
         Bundle bundle = getIntent().getExtras();
 
         String bUrlPoste = bundle.getString("urlPoste");
