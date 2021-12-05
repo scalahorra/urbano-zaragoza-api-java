@@ -71,9 +71,10 @@ public class PosteActivity extends AppCompatActivity {
                                     JSONObject result = jsonArray.getJSONObject(i);
 
                                     String urlPoste = result.getString("about");
+                                    String idPoste = result.getString("description");
                                     String titulo = result.getString("title");
 
-                                    Poste poste = new Poste(urlPoste, titulo);
+                                    Poste poste = new Poste(urlPoste, idPoste, titulo);
                                     posteList.add(poste);
 
                                 }catch (Exception e) {

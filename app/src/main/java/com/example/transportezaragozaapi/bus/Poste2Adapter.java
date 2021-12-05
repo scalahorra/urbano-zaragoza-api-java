@@ -37,7 +37,6 @@ public class Poste2Adapter extends RecyclerView.Adapter<Poste2Adapter.Poste2Hold
     @Override
     public void onBindViewHolder(@NonNull Poste2Adapter.Poste2Holder holder, int position) {
         Poste2 poste2 = poste2List.get(position);
-        holder.tituloPoste2.setText(poste2.getTituloPoste2());
         holder.lineaPoste2.setText(poste2.getLineaPoste2());
         holder.destinoPoste2.setText(poste2.getDestinoPoste2());
         holder.primeroPoste2.setText(poste2.getPrimeroPoste2());
@@ -58,8 +57,8 @@ public class Poste2Adapter extends RecyclerView.Adapter<Poste2Adapter.Poste2Hold
         public Poste2Holder(@NonNull View itemView) {
             super(itemView);
 
-            idPoste2 = itemView.findViewById(R.id.tv_idPoste2);
-            tituloPoste2 = itemView.findViewById(R.id.tv_tituloPoste2);
+            //idPoste2 = itemView.findViewById(R.id.tv_idPoste2);
+            //tituloPoste2 = itemView.findViewById(R.id.tv_tituloPoste2);
             lineaPoste2 = itemView.findViewById(R.id.tv_lineaPoste2);
             destinoPoste2 = itemView.findViewById(R.id.tv_destinoPoste2);
             primeroPoste2 = itemView.findViewById(R.id.tv_primeroPoste2);

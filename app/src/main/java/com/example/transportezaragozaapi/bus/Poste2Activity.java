@@ -1,24 +1,37 @@
 package com.example.transportezaragozaapi.bus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.transportezaragozaapi.R;
+import com.example.transportezaragozaapi.VolleySingleton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Poste2Activity extends AppCompatActivity {
 
-    Poste2 poste2;
+    private Poste2 poste2;
+    private Poste poste;
+
+    private RecyclerView recyclerView;
+    private RequestQueue requestQueue;
+    private List<Poste2> poste2List;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,25 +39,46 @@ public class Poste2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_poste2);
 
         TextView urlPoste2 = findViewById(R.id.urlPoste2);
+        TextView idPoste2 = findViewById(R.id.tv_idPoste2);
+        TextView tituloPoste2 = findViewById(R.id.tv_tituloPoste2);
 
         Bundle bundle = getIntent().getExtras();
 
-        String bUrlPoste2 = bundle.getString("urlPoste");
-        //urlPoste2.setText(bUrlPoste2);
-        System.out.println(bUrlPoste2);
+        String bUrlPoste = bundle.getString("urlPoste");
+        String bIdPoste = bundle.getString("idPoste");
+        String bTituloPoste = bundle.getString("tituloPoste");
 
-        poste2 = new Poste2("", "", "", "", "", "", "", "");
+        idPoste2.setText(bIdPoste);
+        tituloPoste2.setText(bTituloPoste);
 
-        poste2.setUrlPoste2(bUrlPoste2);
-        urlPoste2.setText(poste2.getUrlPoste2());
+        poste = new Poste("", "", "");
 
+        //poste2.setUrlPoste2(bUrlPoste + ".json");
+        poste.setUrlPoste(bUrlPoste + ".json");
+        System.out.println(poste.getUrlPoste());
+
+        //urlPoste2.setText(poste2.getUrlPoste2());
+
+
+
+        //System.out.println(poste2.getUrlPoste2());
+
+        recyclerView = findViewById(R.id.recyclerViewPoste2);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        requestQueue = VolleySingleton.getInstance(this).getRequestQueue();
+
+        poste2List = new ArrayList<>();
+        buscarLineas();
 
     }
 
 
     private void buscarLineas() {
 
-        String url = poste2.getUrlPoste2();
+        //String url = poste2.getUrlPoste2();
+        String url = poste.getUrlPoste();
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
@@ -54,6 +88,36 @@ public class Poste2Activity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
 
+                        try {
+
+                            JSONArray jsonArray = response.getJSONArray("destinos");
+
+                            for(int i=0; i<jsonArray.length(); i++) {
+
+                                JSONObject result = jsonArray.getJSONObject(i);
+
+                                poste2 = new Poste2("", "", "", "", "", "", "", "");
+
+                                String lineaPoste2 = result.getString("linea");
+                                String destinoPoste2 = result.getString("destino");
+                                String primeroPoste2 = result.getString("primero");
+                                String segundoPoste2 = result.getString("segundo");
+
+                                poste2.setLineaPoste2(lineaPoste2);
+                                poste2.setDestinoPoste2(destinoPoste2);
+                                poste2.setPrimeroPoste2(primeroPoste2);
+                                poste2.setSegundoPoste2(segundoPoste2);
+                                System.out.println(lineaPoste2);
+
+                                poste2List.add(poste2);
+                            }
+
+
+                        } catch (JSONException exception) {
+                            exception.printStackTrace();
+                        }
+                        Poste2Adapter adapter = new Poste2Adapter(Poste2Activity.this, poste2List);
+                        recyclerView.setAdapter(adapter);
 
                     }
                 },
@@ -64,6 +128,7 @@ public class Poste2Activity extends AppCompatActivity {
                     }
                 }
         );
+        requestQueue.add(jsonObjectRequest);
     }
 
 

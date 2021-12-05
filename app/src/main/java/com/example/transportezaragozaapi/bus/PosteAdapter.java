@@ -42,6 +42,7 @@ public class PosteAdapter extends RecyclerView.Adapter<PosteAdapter.PosteHolder>
 
         Poste poste = posteList.get(position);
         holder.urlPoste.setText(poste.getUrlPoste());
+        holder.idPoste.setText(poste.getIdPoste());
         holder.tituloPoste.setText(poste.getTituloPoste());
 
         holder.mainLayoutPoste.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,8 @@ public class PosteAdapter extends RecyclerView.Adapter<PosteAdapter.PosteHolder>
                 Bundle bundle = new Bundle();
 
                 bundle.putString("urlPoste", poste.getUrlPoste());
+                bundle.putString("idPoste", poste.getIdPoste());
+                bundle.putString("tituloPoste", poste.getTituloPoste());
 
                 intent.putExtras(bundle);
                 context.startActivity(intent);
@@ -70,13 +73,14 @@ public class PosteAdapter extends RecyclerView.Adapter<PosteAdapter.PosteHolder>
 
     public class PosteHolder extends RecyclerView.ViewHolder {
 
-        TextView urlPoste, tituloPoste;
+        TextView urlPoste, idPoste, tituloPoste;
         ConstraintLayout mainLayoutPoste;
 
         public PosteHolder(@NonNull View itemView) {
             super(itemView);
 
             urlPoste = itemView.findViewById(R.id.tv_urlPoste);
+            idPoste = itemView.findViewById(R.id.tv_idPoste);
             tituloPoste = itemView.findViewById(R.id.tv_tituloPoste);
             mainLayoutPoste = itemView.findViewById(R.id.mainLayoutPoste);
         }
