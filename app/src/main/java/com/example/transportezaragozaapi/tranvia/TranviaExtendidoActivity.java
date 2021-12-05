@@ -15,14 +15,14 @@ public class TranviaExtendidoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tranvia_extendido);
+        setContentView(R.layout.activity_tranvia2);
 
-        TextView tituloTranvia = findViewById(R.id.tv_tituloTranviaExtend);
-        TextView idTranvia = findViewById(R.id.tv_idTranviaExtend);
-        TextView destinoTranvia1 = findViewById(R.id.tv_destinoTranvia1Extend);
-        TextView minutosTranvia1 = findViewById(R.id.tv_minutosTranvia1Extend);
-        TextView destinoTranvia2 = findViewById(R.id.tv_destinoTranvia2Extend);
-        TextView minutosTranvia2 = findViewById(R.id.tv_minutosTranvia2Extend);
+        TextView tituloTranvia2 = findViewById(R.id.tituloTranvia2_tv);
+        TextView idTranvia2 = findViewById(R.id.idTranvia2);
+        TextView destinoTranvia1_2 = findViewById(R.id.destinoTranvia1_2_tv);
+        TextView minutosTranvia1_2 = findViewById(R.id.minutosTranvia1_2_tv);
+        TextView destinoTranvia2_2 = findViewById(R.id.destinoTranvia2_2_tv);
+        TextView minutosTranvia2_2 = findViewById(R.id.minutosTranvia2_2_tv);
 
         Bundle bundle = getIntent().getExtras();
 
@@ -34,12 +34,12 @@ public class TranviaExtendidoActivity extends AppCompatActivity {
         int tMinutosTranvia2 = bundle.getInt("minutosTranvia2");
 
 
-        tituloTranvia.setText(tTituloTranvia);
-        idTranvia.setText(tIdTranvia);
-        destinoTranvia1.setText(tDestinoTranvia1);
-        minutosTranvia1.setText(Integer.toString(tMinutosTranvia1));
-        destinoTranvia2.setText(tDestinoTranvia2);
-        minutosTranvia2.setText(Integer.toString(tMinutosTranvia2));
+        tituloTranvia2.setText(tTituloTranvia);
+        idTranvia2.setText(tIdTranvia);
+        destinoTranvia1_2.setText(tDestinoTranvia1);
+        minutosTranvia1_2.setText(Integer.toString(tMinutosTranvia1));
+        destinoTranvia2_2.setText(tDestinoTranvia2);
+        minutosTranvia2_2.setText(Integer.toString(tMinutosTranvia2));
     }
 
     @Override

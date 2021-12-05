@@ -23,7 +23,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/iv_iconoTranvia"
+                android:id="@+id/iconoTranvia_iv"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="10dp"
@@ -35,7 +35,7 @@
                 app:srcCompat="@drawable/tranvia_color" />
 
             <TextView
-                android:id="@+id/tv_tituloTranvia"
+                android:id="@+id/tituloTranvia_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -43,11 +43,11 @@
                 android:text="@string/tv_tituloTranvia"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/iv_iconoTranvia"
+                app:layout_constraintStart_toEndOf="@+id/iconoTranvia_iv"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_idTranvia"
+                android:id="@+id/idTranvia_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
@@ -58,7 +58,7 @@
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
-                android:id="@+id/tv_destinoTranvia1"
+                android:id="@+id/destinoTranvia1_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
@@ -66,7 +66,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_minutosTranvia1"
+                android:id="@+id/minutosTranvia_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
@@ -74,7 +74,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_destinoTranvia2"
+                android:id="@+id/destinoTranvia2_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
@@ -82,7 +82,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_minutosTranvia2"
+                android:id="@+id/minutosTranvia2_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"

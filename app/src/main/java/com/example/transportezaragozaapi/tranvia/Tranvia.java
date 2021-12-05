@@ -2,8 +2,8 @@ package com.example.transportezaragozaapi.tranvia;
 
 public class Tranvia {
 
-    private final String idTranvia;
-    private final String tituloTranvia;
+    private String idTranvia;
+    private String tituloTranvia;
     private String destinoTranvia1;
     private Integer minutosTranvia1;
     private String destinoTranvia2;
@@ -23,8 +23,16 @@ public class Tranvia {
         return idTranvia;
     }
 
+    public void setIdTranvia(String idTranvia) {
+        this.idTranvia = idTranvia;
+    }
+
     public String getTituloTranvia() {
         return tituloTranvia;
+    }
+
+    public void setTituloTranvia(String tituloTranvia) {
+        this.tituloTranvia = tituloTranvia;
     }
 
     public String getDestinoTranvia1() {

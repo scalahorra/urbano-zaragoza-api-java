@@ -7,23 +7,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.transportezaragozaapi.R;
 
 import java.util.List;
-import java.util.Objects;
 
 public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaHolder> {
 
-    private Context context;
-    private List<Tranvia> tranviaList;
+    private final Context context;
+    private final List<Tranvia> tranviaList;
 
     public TranviaAdapter(Context context, List<Tranvia> tranvias) {
         this.context = context;
@@ -85,12 +82,12 @@ public class TranviaAdapter extends RecyclerView.Adapter<TranviaAdapter.TranviaH
         public TranviaHolder(@NonNull View itemView) {
             super(itemView);
 
-            idTranvia = itemView.findViewById(R.id.tv_idTranvia);
-            tituloTranvia = itemView.findViewById(R.id.tv_tituloTranvia);
-            destinoTranvia1 = itemView.findViewById(R.id.tv_destinoTranvia1);
-            minutosTranvia1 = itemView.findViewById(R.id.tv_minutosTranvia1);
-            destinoTranvia2 = itemView.findViewById(R.id.tv_destinoTranvia2);
-            minutosTranvia2 = itemView.findViewById(R.id.tv_minutosTranvia2);
+            idTranvia = itemView.findViewById(R.id.idTranvia_tv);
+            tituloTranvia = itemView.findViewById(R.id.tituloTranvia_tv);
+            destinoTranvia1 = itemView.findViewById(R.id.destinoTranvia1_tv);
+            minutosTranvia1 = itemView.findViewById(R.id.minutosTranvia_tv);
+            destinoTranvia2 = itemView.findViewById(R.id.destinoTranvia2_tv);
+            minutosTranvia2 = itemView.findViewById(R.id.minutosTranvia2_tv);
             mainLayoutTranvia = itemView.findViewById(R.id.mainLayoutTranvia);
         }
     }

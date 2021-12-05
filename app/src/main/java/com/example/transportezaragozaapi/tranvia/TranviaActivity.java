@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,8 +25,8 @@ import java.util.List;
 
 public class TranviaActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerViewTranvias;
-    private RequestQueue requestQueue;
+    private RecyclerView recyclerViewTranvia;
+    private RequestQueue peticionTranvia;
     private List<Tranvia> tranviaList;
 
     @Override
@@ -35,11 +34,11 @@ public class TranviaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tranvia);
 
-        recyclerViewTranvias = findViewById(R.id.recyclerViewTranvias);
-        recyclerViewTranvias.setHasFixedSize(true);
-        recyclerViewTranvias.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewTranvia = findViewById(R.id.recyclerViewTranvia);
+        recyclerViewTranvia.setHasFixedSize(true);
+        recyclerViewTranvia.setLayoutManager(new LinearLayoutManager(this));
 
-        requestQueue = VolleySingleton.getInstance(this).getRequestQueue();
+        peticionTranvia = VolleySingleton.getInstance(this).getRequestQueue();
 
         tranviaList = new ArrayList<>();
 
@@ -49,11 +48,11 @@ public class TranviaActivity extends AppCompatActivity {
 
     private void buscarTranvias() {
 
-        String url = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/parada-tranvia.json?sort=id%20desc";
+        String urlTranvia = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/parada-tranvia.json?sort=id%20desc";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                url,
+                urlTranvia,
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -74,7 +73,7 @@ public class TranviaActivity extends AppCompatActivity {
                                 String destinoTranvia2;
                                 Integer minutosTranvia2;
 
-                                Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, "null", 0, "null", 0);
+                                Tranvia tranvia = new Tranvia(idTranvia, tituloTranvia, "", 0, "", 0);
 
                                 try {
                                     JSONArray jsonArray1 = result.getJSONArray("destinos");
@@ -107,7 +106,7 @@ public class TranviaActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         TranviaAdapter adapter = new TranviaAdapter(TranviaActivity.this, tranviaList);
-                        recyclerViewTranvias.setAdapter(adapter);
+                        recyclerViewTranvia.setAdapter(adapter);
                     }
                 },
                 new Response.ErrorListener() {
@@ -117,7 +116,7 @@ public class TranviaActivity extends AppCompatActivity {
                     }
                 }
         );
-        requestQueue.add(jsonObjectRequest);
+        peticionTranvia.add(jsonObjectRequest);
     }
 
 
