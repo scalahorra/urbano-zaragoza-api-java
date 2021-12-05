@@ -16,8 +16,8 @@ import java.util.List;
 public class Poste2Adapter extends RecyclerView.Adapter<Poste2Adapter.Poste2Holder> {
 
 
-    private Context context;
-    private List<Poste2> poste2List;
+    private final Context context;
+    private final List<Poste2> poste2List;
 
 
     public Poste2Adapter(Context context, List<Poste2> postes2) {
@@ -57,8 +57,6 @@ public class Poste2Adapter extends RecyclerView.Adapter<Poste2Adapter.Poste2Hold
         public Poste2Holder(@NonNull View itemView) {
             super(itemView);
 
-            //idPoste2 = itemView.findViewById(R.id.tv_idPoste2);
-            //tituloPoste2 = itemView.findViewById(R.id.tv_tituloPoste2);
             lineaPoste2 = itemView.findViewById(R.id.tv_lineaPoste2);
             destinoPoste2 = itemView.findViewById(R.id.tv_destinoPoste2);
             primeroPoste2 = itemView.findViewById(R.id.tv_primeroPoste2);

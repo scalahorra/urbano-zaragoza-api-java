@@ -38,7 +38,6 @@ public class Poste2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poste2);
 
-        TextView urlPoste2 = findViewById(R.id.urlPoste2);
         TextView idPoste2 = findViewById(R.id.tv_idPoste2);
         TextView tituloPoste2 = findViewById(R.id.tv_tituloPoste2);
 
@@ -53,15 +52,9 @@ public class Poste2Activity extends AppCompatActivity {
 
         poste = new Poste("", "", "");
 
-        //poste2.setUrlPoste2(bUrlPoste + ".json");
         poste.setUrlPoste(bUrlPoste + ".json");
         System.out.println(poste.getUrlPoste());
 
-        //urlPoste2.setText(poste2.getUrlPoste2());
-
-
-
-        //System.out.println(poste2.getUrlPoste2());
 
         recyclerView = findViewById(R.id.recyclerViewPoste2);
         recyclerView.setHasFixedSize(true);
@@ -77,7 +70,6 @@ public class Poste2Activity extends AppCompatActivity {
 
     private void buscarLineas() {
 
-        //String url = poste2.getUrlPoste2();
         String url = poste.getUrlPoste();
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(

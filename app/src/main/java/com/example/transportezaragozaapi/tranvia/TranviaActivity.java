@@ -49,7 +49,7 @@ public class TranviaActivity extends AppCompatActivity {
 
     private void buscarTranvias() {
 
-        String url = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/parada-tranvia.json";
+        String url = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/parada-tranvia.json?sort=id%20desc";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,

@@ -49,7 +49,7 @@ public class BiciActivity extends AppCompatActivity {
     // Metodo sacar todas las
     private void buscarBici() {
 
-        String url = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/estacion-bicicleta.json";
+        String url = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/estacion-bicicleta.json?sort=id%20asc";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,
