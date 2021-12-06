@@ -34,7 +34,7 @@
                 android:layout_width="285dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:gravity="start"
                 android:text="titulo poste"
                 android:textColor="@color/white"

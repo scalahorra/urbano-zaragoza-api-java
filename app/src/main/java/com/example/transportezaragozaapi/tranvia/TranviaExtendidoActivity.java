@@ -37,9 +37,9 @@ public class TranviaExtendidoActivity extends AppCompatActivity {
         tituloTranvia2.setText(tTituloTranvia);
         idTranvia2.setText(tIdTranvia);
         destinoTranvia1_2.setText(tDestinoTranvia1);
-        minutosTranvia1_2.setText(Integer.toString(tMinutosTranvia1));
+        minutosTranvia1_2.setText(Integer.toString(tMinutosTranvia1) + " minutos");
         destinoTranvia2_2.setText(tDestinoTranvia2);
-        minutosTranvia2_2.setText(Integer.toString(tMinutosTranvia2));
+        minutosTranvia2_2.setText(Integer.toString(tMinutosTranvia2) + " minutos");
     }
 
     @Override
