@@ -28,9 +28,9 @@ public class TranviaExtendidoActivity extends AppCompatActivity {
 
         String tTituloTranvia = bundle.getString("tituloTranvia");
         String tIdTranvia = bundle.getString("idTranvia");
-        String tDestinoTranvia1 = bundle.getString("destinoTranvia1");
+        String tDestinoTranvia1 = bundle.getString("destinoTranvia1").toLowerCase();
         int tMinutosTranvia1 = bundle.getInt("minutosTranvia1");
-        String tDestinoTranvia2 = bundle.getString("destinoTranvia2");
+        String tDestinoTranvia2 = bundle.getString("destinoTranvia2").toLowerCase();
         int tMinutosTranvia2 = bundle.getInt("minutosTranvia2");
 
 
