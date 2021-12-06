@@ -29,7 +29,6 @@ import java.util.List;
 
 public class PosteActivity extends AppCompatActivity {
 
-
     private RecyclerView recyclerView;
     private RequestQueue requestQueue;
     private List<Poste> posteList;
@@ -52,17 +51,14 @@ public class PosteActivity extends AppCompatActivity {
 
         posteList = new ArrayList<>();
 
-
-
         inputLinea = findViewById(R.id.inputLinea);
         btnLinea = findViewById(R.id.btnLinea);
+
         btnLinea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 numeroLinea = inputLinea.getText().toString();
-
                 posteList.clear();
-
                 buscarPoste(numeroLinea);
             }
         });

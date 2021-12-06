@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // Metodos para ir a las actividades
     public void irBici(View view) {
         Intent irBici = new Intent(this, BiciActivity.class);
         startActivity(irBici);
         finish();
     }
+
 
     public void irTranvia(View view) {
         Intent irTranvia = new Intent(this, TranviaActivity.class);
@@ -32,11 +32,13 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+
     public void irBus(View view) {
         Intent irBus = new Intent(this, PosteActivity.class);
         startActivity(irBus);
         finish();
     }
+
 
     @Override
     public void onBackPressed() {

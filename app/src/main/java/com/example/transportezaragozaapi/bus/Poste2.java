@@ -23,6 +23,7 @@ public class Poste2 {
         this.ultimaActPoste2 = ultimaActPoste2;
     }
 
+
     public String getUrlPoste2() {
         return urlPoste2;
     }
