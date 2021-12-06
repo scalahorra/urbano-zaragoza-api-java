@@ -3,6 +3,7 @@ package com.example.transportezaragozaapi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -38,6 +39,31 @@ public class MainActivity extends AppCompatActivity {
         Intent irBus = new Intent(this, PosteActivity.class);
         startActivity(irBus);
         finish();
+    }
+
+
+    public void irTwitter(View view) {
+        String urlTwitter = "https://twitter.com/buszaragoza";
+        parseUrl(urlTwitter);
+    }
+
+
+    public void irGithub(View view) {
+        String urlGithub = "https://github.com/scalahorra";
+        parseUrl(urlGithub);
+    }
+
+
+    public void irWeb(View view) {
+        String urlWeb = "https://zaragoza.avanzagrupo.com/";
+        parseUrl(urlWeb);
+    }
+
+
+    public void parseUrl(String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent lanzarNavegador = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(lanzarNavegador);
     }
 
 
