@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
     
-    <style name="CargaTheme" parent="Theme.TransporteZaragozaAPI">
+    <style name="CargaTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/pantalla_carga</item>
     </style>
 </resources>
