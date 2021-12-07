@@ -85,7 +85,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="#756E6E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -99,7 +99,7 @@
                 android:id="@+id/botonGithub"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#756E6E"
                 android:contentDescription="github"
                 android:onClick="irGithub"
                 app:srcCompat="@drawable/github_diminuto" />
@@ -110,7 +110,7 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#756E6E"
                 android:contentDescription="twitter"
                 android:onClick="irTwitter"
                 app:srcCompat="@drawable/twitter_diminuto" />
@@ -119,7 +119,7 @@
                 android:id="@+id/botonWeb"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:backgroundTint="@color/black"
+                android:backgroundTint="#756E6E"
                 android:contentDescription="web"
                 android:onClick="irWeb"
                 app:srcCompat="@drawable/web_diminuto" />
