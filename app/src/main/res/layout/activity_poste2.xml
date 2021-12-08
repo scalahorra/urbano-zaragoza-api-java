@@ -73,4 +73,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/colorBotonesInferiores"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnBici"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorBotonesInferiores"
+                android:contentDescription="tranvia"
+                android:onClick="irBici"
+                app:srcCompat="@drawable/bici_nocolor_diminuto" />
+
+            <ImageButton
+                android:id="@+id/btnCasa"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorBotonesInferiores"
+                android:contentDescription="casa"
+                android:onClick="irMenu"
+                app:srcCompat="@drawable/casa_diminuto" />
+
+            <ImageButton
+                android:id="@+id/btnTranvia"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorBotonesInferiores"
+                android:contentDescription="bus"
+                android:onClick="irTranvia"
+                app:srcCompat="@drawable/tranvia_nocolor_diminuto" />
+
+        </LinearLayout>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

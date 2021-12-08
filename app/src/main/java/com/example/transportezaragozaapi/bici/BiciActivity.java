@@ -122,20 +122,17 @@ public class BiciActivity extends AppCompatActivity {
         finish();
     }
 
-
     public void irMenu(View view) {
         Intent irMenu = new Intent(this, MainActivity.class);
         startActivity(irMenu);
         finish();
     }
 
-
     public void irBus(View view) {
         Intent irBus = new Intent(this, PosteActivity.class);
         startActivity(irBus);
         finish();
     }
-
 
     @Override
     public void onBackPressed() {

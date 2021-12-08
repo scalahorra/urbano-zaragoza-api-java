@@ -33,4 +33,5 @@
     <color name="colorPrincipal">#476DF5</color>
     <color name="colorSecundario">#4D5DCD</color>
     <color name="colorTerciario">#4A93AC</color>
+    <color name="colorBotonesInferiores">#756E6E</color>
 </resources>

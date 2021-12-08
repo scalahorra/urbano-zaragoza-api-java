@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
+import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
+import com.example.transportezaragozaapi.bici.BiciActivity;
+import com.example.transportezaragozaapi.bus.PosteActivity;
 
 public class TranviaExtendidoActivity extends AppCompatActivity {
 
@@ -40,6 +44,25 @@ public class TranviaExtendidoActivity extends AppCompatActivity {
         minutosTranvia1_2.setText(Integer.toString(tMinutosTranvia1) + " minutos");
         destinoTranvia2_2.setText(tDestinoTranvia2);
         minutosTranvia2_2.setText(Integer.toString(tMinutosTranvia2) + " minutos");
+    }
+
+
+    public void irBici(View view) {
+        Intent irBici = new Intent(this, BiciActivity.class);
+        startActivity(irBici);
+        finish();
+    }
+
+    public void irMenu(View view) {
+        Intent irMenu = new Intent(this, MainActivity.class);
+        startActivity(irMenu);
+        finish();
+    }
+
+    public void irBus(View view) {
+        Intent irBus = new Intent(this, PosteActivity.class);
+        startActivity(irBus);
+        finish();
     }
 
     @Override

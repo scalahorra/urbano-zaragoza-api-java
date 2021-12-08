@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,9 +18,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.transportezaragozaapi.CargadorDialog;
+import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
 import com.example.transportezaragozaapi.VolleySingleton;
 import com.example.transportezaragozaapi.bici.BiciActivity;
+import com.example.transportezaragozaapi.tranvia.TranviaActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -142,6 +145,24 @@ public class Poste2Activity extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
 
+
+    public void irBici(View view) {
+        Intent irBici = new Intent(this, BiciActivity.class);
+        startActivity(irBici);
+        finish();
+    }
+
+    public void irTranvia(View view) {
+        Intent irTranvia = new Intent(this, TranviaActivity.class);
+        startActivity(irTranvia);
+        finish();
+    }
+
+    public void irMenu(View view) {
+        Intent irMenu = new Intent(this, MainActivity.class);
+        startActivity(irMenu);
+        finish();
+    }
 
     @Override
     public void onBackPressed() {

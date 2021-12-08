@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
+import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
+import com.example.transportezaragozaapi.bus.PosteActivity;
+import com.example.transportezaragozaapi.tranvia.TranviaActivity;
 
 public class Bici2Activity extends AppCompatActivity {
 
@@ -38,6 +42,24 @@ public class Bici2Activity extends AppCompatActivity {
         anclajesDisponibles.setText(Integer.toString(eAnclajesDisponibles));
     }
 
+
+    public void irTranvia(View view) {
+        Intent irTranvia = new Intent(this, TranviaActivity.class);
+        startActivity(irTranvia);
+        finish();
+    }
+
+    public void irMenu(View view) {
+        Intent irMenu = new Intent(this, MainActivity.class);
+        startActivity(irMenu);
+        finish();
+    }
+
+    public void irBus(View view) {
+        Intent irBus = new Intent(this, PosteActivity.class);
+        startActivity(irBus);
+        finish();
+    }
 
     @Override
     public void onBackPressed() {

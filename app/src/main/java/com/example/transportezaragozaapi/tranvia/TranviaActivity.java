@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -19,6 +20,7 @@ import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
 import com.example.transportezaragozaapi.VolleySingleton;
 import com.example.transportezaragozaapi.bici.BiciActivity;
+import com.example.transportezaragozaapi.bus.PosteActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -137,6 +139,24 @@ public class TranviaActivity extends AppCompatActivity {
         peticionTranvia.add(jsonObjectRequest);
     }
 
+
+    public void irBici(View view) {
+        Intent irBici = new Intent(this, BiciActivity.class);
+        startActivity(irBici);
+        finish();
+    }
+
+    public void irMenu(View view) {
+        Intent irMenu = new Intent(this, MainActivity.class);
+        startActivity(irMenu);
+        finish();
+    }
+
+    public void irBus(View view) {
+        Intent irBus = new Intent(this, PosteActivity.class);
+        startActivity(irBus);
+        finish();
+    }
 
     @Override
     public void onBackPressed() {

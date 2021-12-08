@@ -22,6 +22,7 @@ import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
 import com.example.transportezaragozaapi.VolleySingleton;
 import com.example.transportezaragozaapi.bici.BiciActivity;
+import com.example.transportezaragozaapi.tranvia.TranviaActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -134,6 +135,24 @@ public class PosteActivity extends AppCompatActivity {
         requestQueue.add(jsonObjectRequest);
     }
 
+
+    public void irBici(View view) {
+        Intent irBici = new Intent(this, BiciActivity.class);
+        startActivity(irBici);
+        finish();
+    }
+
+    public void irTranvia(View view) {
+        Intent irTranvia = new Intent(this, TranviaActivity.class);
+        startActivity(irTranvia);
+        finish();
+    }
+
+    public void irMenu(View view) {
+        Intent irMenu = new Intent(this, MainActivity.class);
+        startActivity(irMenu);
+        finish();
+    }
 
     @Override
     public void onBackPressed() {
