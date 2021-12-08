@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -14,8 +15,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.transportezaragozaapi.CargadorDialog;
 import com.example.transportezaragozaapi.R;
 import com.example.transportezaragozaapi.VolleySingleton;
+import com.example.transportezaragozaapi.bici.BiciActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +40,19 @@ public class Poste2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_poste2);
+
+        //Cargador ini
+        CargadorDialog cargadorDialog = new CargadorDialog(Poste2Activity.this);
+        cargadorDialog.iniciarCargadorDialog();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                cargadorDialog.cancelarCargadorDialog();
+            }
+        }, 1000);
+        //Cargador fin
 
         TextView idPoste2 = findViewById(R.id.tv_idPoste2);
         TextView tituloPoste2 = findViewById(R.id.tv_tituloPoste2);

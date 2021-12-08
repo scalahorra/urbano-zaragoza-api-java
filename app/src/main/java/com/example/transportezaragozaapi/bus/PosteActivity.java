@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,9 +17,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.transportezaragozaapi.CargadorDialog;
 import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
 import com.example.transportezaragozaapi.VolleySingleton;
+import com.example.transportezaragozaapi.bici.BiciActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,6 +60,20 @@ public class PosteActivity extends AppCompatActivity {
         btnLinea.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //Cargador ini
+                CargadorDialog cargadorDialog = new CargadorDialog(PosteActivity.this);
+                cargadorDialog.iniciarCargadorDialog();
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        cargadorDialog.cancelarCargadorDialog();
+                    }
+                }, 1000);
+                //Cargador fin
+
                 numeroLinea = inputLinea.getText().toString();
                 posteList.clear();
                 buscarPoste(numeroLinea);

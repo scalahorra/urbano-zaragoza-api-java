@@ -6,15 +6,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.transportezaragozaapi.CargadorDialog;
 import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
 import com.example.transportezaragozaapi.VolleySingleton;
+import com.example.transportezaragozaapi.bici.BiciActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,6 +36,19 @@ public class TranviaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tranvia);
+
+        //Cargador ini
+        CargadorDialog cargadorDialog = new CargadorDialog(TranviaActivity.this);
+        cargadorDialog.iniciarCargadorDialog();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                cargadorDialog.cancelarCargadorDialog();
+            }
+        }, 1000);
+        //Cargador fin
 
         recyclerViewTranvia = findViewById(R.id.recyclerViewTranvia);
         recyclerViewTranvia.setHasFixedSize(true);
