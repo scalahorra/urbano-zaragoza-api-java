@@ -41,7 +41,7 @@
         android:id="@+id/bottomNavigationView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:backgroundTint="@color/colorBotonesInferiores"
+        app:backgroundTint="@color/colorSecundario"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/colorBotonesInferiores"
+                android:background="@color/colorSecundario"
                 android:contentDescription="tranvia"
                 android:onClick="irBici"
                 app:srcCompat="@drawable/bici_nocolor_diminuto" />
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/colorBotonesInferiores"
+                android:background="@color/colorSecundario"
                 android:contentDescription="casa"
                 android:onClick="irMenu"
                 app:srcCompat="@drawable/casa_diminuto" />
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/colorBotonesInferiores"
+                android:background="@color/colorSecundario"
                 android:contentDescription="bus"
                 android:onClick="irTranvia"
                 app:srcCompat="@drawable/tranvia_nocolor_diminuto" />
