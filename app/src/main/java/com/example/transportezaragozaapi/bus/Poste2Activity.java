@@ -51,7 +51,7 @@ public class Poste2Activity extends AppCompatActivity {
             public void run() {
                 cargadorDialog.cancelarCargadorDialog();
             }
-        }, 1000);
+        }, 500);
         //Cargador fin
 
         TextView idPoste2 = findViewById(R.id.tv_idPoste2);

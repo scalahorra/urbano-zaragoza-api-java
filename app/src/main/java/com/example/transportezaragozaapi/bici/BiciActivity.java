@@ -46,7 +46,7 @@ public class BiciActivity extends AppCompatActivity {
             public void run() {
                 cargadorDialog.cancelarCargadorDialog();
             }
-        }, 1000);
+        }, 500);
         //Cargador fin
 
         recyclerViewBici = findViewById(R.id.recyclerViewBicis);

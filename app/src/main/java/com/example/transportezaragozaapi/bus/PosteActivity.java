@@ -71,7 +71,7 @@ public class PosteActivity extends AppCompatActivity {
                     public void run() {
                         cargadorDialog.cancelarCargadorDialog();
                     }
-                }, 1000);
+                }, 500);
                 //Cargador fin
 
                 numeroLinea = inputLinea.getText().toString();

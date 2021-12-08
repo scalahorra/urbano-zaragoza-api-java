@@ -47,7 +47,7 @@ public class TranviaActivity extends AppCompatActivity {
             public void run() {
                 cargadorDialog.cancelarCargadorDialog();
             }
-        }, 1000);
+        }, 500);
         //Cargador fin
 
         recyclerViewTranvia = findViewById(R.id.recyclerViewTranvia);

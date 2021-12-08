@@ -7,27 +7,39 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_mainTitle"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="@string/tv_titleMain"
-        android:textSize="20dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="-50dp"
+        android:backgroundTint="@color/colorSecundario"
+        app:cardCornerRadius="50dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_mainTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:text="Transporte Urbano Zaragoza"
+            android:textColor="@color/white"
+            android:textSize="50dp" />
+    </androidx.cardview.widget.CardView>
 
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tv_mainTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tv_mainTitle">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3">
 
         <TableRow
             android:layout_width="match_parent"
