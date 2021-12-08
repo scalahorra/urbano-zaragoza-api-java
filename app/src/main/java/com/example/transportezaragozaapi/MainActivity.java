@@ -27,13 +27,11 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-
     public void irTranvia(View view) {
         Intent irTranvia = new Intent(this, TranviaActivity.class);
         startActivity(irTranvia);
         finish();
     }
-
 
     public void irBus(View view) {
         Intent irBus = new Intent(this, PosteActivity.class);
@@ -41,24 +39,20 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-
     public void irTwitter(View view) {
         String urlTwitter = "https://twitter.com/buszaragoza";
         parseUrl(urlTwitter);
     }
-
 
     public void irGithub(View view) {
         String urlGithub = "https://github.com/scalahorra";
         parseUrl(urlGithub);
     }
 
-
     public void irWeb(View view) {
         String urlWeb = "https://zaragoza.avanzagrupo.com/";
         parseUrl(urlWeb);
     }
-
 
     public void parseUrl(String url) {
         Uri uriUrl = Uri.parse(url);

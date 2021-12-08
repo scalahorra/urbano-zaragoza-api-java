@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.transportezaragozaapi.CargadorDialog;
 import com.example.transportezaragozaapi.R;
 
 import java.util.List;
@@ -30,7 +31,6 @@ public class BiciAdapter extends RecyclerView.Adapter<BiciAdapter.BiciHolder> {
     }
 
 
-    // Implementaciones del RecyclerView
     @NonNull
     @Override
     public BiciHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

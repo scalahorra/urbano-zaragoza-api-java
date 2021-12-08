@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,6 +19,8 @@ import com.example.transportezaragozaapi.CargadorDialog;
 import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
 import com.example.transportezaragozaapi.VolleySingleton;
+import com.example.transportezaragozaapi.bus.PosteActivity;
+import com.example.transportezaragozaapi.tranvia.TranviaActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,14 +35,17 @@ public class BiciActivity extends AppCompatActivity {
     private RequestQueue peticionBici;
     private List<Bici> biciList;
 
+    CargadorDialog cargadorDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bici);
 
         //Cargador ini
-        CargadorDialog cargadorDialog = new CargadorDialog(BiciActivity.this);
+        cargadorDialog = new CargadorDialog(BiciActivity.this);
         cargadorDialog.iniciarCargadorDialog();
+
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -46,7 +53,7 @@ public class BiciActivity extends AppCompatActivity {
             public void run() {
                 cargadorDialog.cancelarCargadorDialog();
             }
-        }, 500);
+        }, 1000);
         //Cargador fin
 
         recyclerViewBici = findViewById(R.id.recyclerViewBicis);
@@ -61,7 +68,6 @@ public class BiciActivity extends AppCompatActivity {
     }
 
 
-    // Metodo sacar todas las
     private void buscarBici() {
 
         String urlBici = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/estacion-bicicleta.json?sort=id%20asc";
@@ -101,12 +107,35 @@ public class BiciActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        error.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Ha ocurrido un error", Toast.LENGTH_LONG).show();
                     }
                 }
         );
         peticionBici.add(jsonObjectRequest);
     }
+
+
+    public void irTranvia(View view) {
+        Intent irTranvia = new Intent(this, TranviaActivity.class);
+        startActivity(irTranvia);
+        finish();
+    }
+
+
+    public void irMenu(View view) {
+        Intent irMenu = new Intent(this, MainActivity.class);
+        startActivity(irMenu);
+        finish();
+    }
+
+
+    public void irBus(View view) {
+        Intent irBus = new Intent(this, PosteActivity.class);
+        startActivity(irBus);
+        finish();
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -114,4 +143,5 @@ public class BiciActivity extends AppCompatActivity {
         startActivity(irMenu);
         finish();
     }
+
 }
