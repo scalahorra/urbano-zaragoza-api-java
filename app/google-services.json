@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "856730082171",
+    "project_id": "transporte-zaragoza-api",
+    "storage_bucket": "transporte-zaragoza-api.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856730082171:android:3ecfc1f9e36e686ec1fbde",
+        "android_client_info": {
+          "package_name": "com.example.transportezaragozaapi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856730082171-ideqqcpbrrdc8ta6ofdv8601jddo13cl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAynowtfhX64Oq_9CsmOgyKMmebbKulrzY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856730082171-ideqqcpbrrdc8ta6ofdv8601jddo13cl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
