@@ -39,6 +39,12 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+    public void irDatos(View view) {
+        Intent irDatos = new Intent(this, DatosActivity.class);
+        startActivity(irDatos);
+        finish();
+    }
+
     public void irTwitter(View view) {
         String urlTwitter = "https://twitter.com/buszaragoza";
         parseUrl(urlTwitter);
