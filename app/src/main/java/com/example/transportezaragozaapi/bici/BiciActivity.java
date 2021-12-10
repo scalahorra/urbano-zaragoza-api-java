@@ -53,7 +53,7 @@ public class BiciActivity extends AppCompatActivity {
             public void run() {
                 cargadorDialog.cancelarCargadorDialog();
             }
-        }, 1000);
+        }, 500);
         //Cargador fin
 
         recyclerViewBici = findViewById(R.id.recyclerViewBicis);
@@ -70,7 +70,7 @@ public class BiciActivity extends AppCompatActivity {
 
     private void buscarBici() {
 
-        String urlBici = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/estacion-bicicleta.json?sort=id%20asc";
+        String urlBici = "https://zaragoza.es/sede/servicio/urbanismo-infraestructuras/estacion-bicicleta.json?fl=title,id,lastUpdated,bicisDisponibles,anclajesDisponibles&sort=id%20asc";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
                 Request.Method.GET,

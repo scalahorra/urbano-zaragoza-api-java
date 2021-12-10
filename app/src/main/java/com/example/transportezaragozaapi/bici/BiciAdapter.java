@@ -55,7 +55,6 @@ public class BiciAdapter extends RecyclerView.Adapter<BiciAdapter.BiciHolder> {
             public void onClick(View view) {
 
                 Intent irBici2 = new Intent(context, Bici2Activity.class);
-
                 Bundle bundleBici = new Bundle();
 
                 bundleBici.putString("tituloBici", bici.getTituloBici());
