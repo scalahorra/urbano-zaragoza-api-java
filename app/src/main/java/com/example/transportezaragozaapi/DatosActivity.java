@@ -5,6 +5,8 @@ import static android.service.controls.ControlsProviderService.TAG;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -36,14 +38,26 @@ public class DatosActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                            Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        }
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                            Log.w(TAG, "Error adding document", e);
+                        }
                     }
                 });
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        Intent irMenu = new Intent(DatosActivity.this, MainActivity.class);
+        startActivity(irMenu);
+        finish();
     }
 }
