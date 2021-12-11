@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.example.transportezaragozaapi.bici.BiciActivity;
 import com.example.transportezaragozaapi.bus.PosteActivity;
+import com.example.transportezaragozaapi.datos.LoginActivity;
 import com.example.transportezaragozaapi.tranvia.TranviaActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void irDatos(View view) {
-        Intent irDatos = new Intent(this, DatosActivity.class);
+        Intent irDatos = new Intent(this, LoginActivity.class);
         startActivity(irDatos);
         finish();
     }
