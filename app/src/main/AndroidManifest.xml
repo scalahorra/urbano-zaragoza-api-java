@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".datos.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".datos.DatosActivity"
             android:exported="false" />
         <activity
