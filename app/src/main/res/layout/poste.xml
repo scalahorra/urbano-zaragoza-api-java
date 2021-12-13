@@ -37,10 +37,12 @@
 
             <TextView
                 android:id="@+id/tv_tituloPoste"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="25dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:text="Titulo parada"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/iv_iconoPoste"
@@ -50,7 +52,8 @@
                 android:id="@+id/tv_idPoste"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="25dp"
                 android:text="Identificador"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
