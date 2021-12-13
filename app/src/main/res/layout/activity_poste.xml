@@ -8,22 +8,27 @@
 
     <EditText
         android:id="@+id/inputLinea"
-        android:layout_width="wrap_content"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
-        android:hint="línea"
+        android:hint="@string/lineaPoste"
         android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/btnLinea"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
         android:layout_marginStart="10dp"
-        android:text="Ok"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/colorSecundario"
+        android:text="@string/aceptar"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/inputLinea"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,8 +54,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="5dp">
 
             <ImageButton
                 android:id="@+id/btnBici"

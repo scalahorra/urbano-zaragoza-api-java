@@ -2,6 +2,7 @@
     <string name="app_name">Transportes de Zaragoza</string>
 
     <string name="icono">icono</string>
+    <string name="aceptar">Aceptar</string>
 
     <string name="tv_mainTitle">Transporte Urbano Zaragoza</string>
     <string name="btn_bici">Bicicleta</string>
@@ -30,5 +31,6 @@
     <string name="destinoLinea">destino</string>
     <string name="minutosBus1">minutos bus 1</string>
     <string name="minutosBus2">minutos bus 2</string>
+
 
 </resources>

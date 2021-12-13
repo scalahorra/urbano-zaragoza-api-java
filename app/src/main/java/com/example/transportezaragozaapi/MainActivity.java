@@ -11,14 +11,20 @@ import com.example.transportezaragozaapi.bici.BiciActivity;
 import com.example.transportezaragozaapi.bus.PosteActivity;
 import com.example.transportezaragozaapi.datos.LoginActivity;
 import com.example.transportezaragozaapi.tranvia.TranviaActivity;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 public class MainActivity extends AppCompatActivity {
+
+    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.CargaTheme);
         setContentView(R.layout.activity_main);
+
+
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 
 
