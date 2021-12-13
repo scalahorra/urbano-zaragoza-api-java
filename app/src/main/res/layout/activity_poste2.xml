@@ -20,7 +20,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/iv_iconoBusPoste2"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="20dp"
@@ -31,17 +31,17 @@
 
             <TextView
                 android:id="@+id/tv_tituloPoste2"
-                android:layout_width="285dp"
+                android:layout_width="280dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
+                android:ellipsize="end"
                 android:gravity="start"
+                android:maxLines="2"
                 android:text="titulo poste"
                 android:textColor="@color/white"
                 android:textSize="25sp"
-                android:ellipsize="end"
-                android:maxLines="2"
-                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toEndOf="@+id/iv_iconoBusPoste2"
                 app:layout_constraintTop_toBottomOf="@+id/tv_idPoste2" />
 
             <TextView
@@ -52,7 +52,7 @@
                 android:layout_marginTop="20dp"
                 android:text="id poste"
                 android:textColor="@color/white"
-                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toEndOf="@+id/iv_iconoBusPoste2"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -64,6 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Direccion"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

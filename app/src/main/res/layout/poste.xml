@@ -30,6 +30,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:contentDescription="@string/icono"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -43,10 +44,11 @@
                 android:layout_marginTop="25dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Titulo parada"
+                android:text="@string/tituloPoste"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/iv_iconoPoste"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/tv_idPoste"
@@ -54,10 +56,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="25dp"
-                android:text="Identificador"
+                android:text="@string/idPoste"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_tituloPoste" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_tituloPoste"
+                tools:ignore="TextContrastCheck" />
 
             <TextView
                 android:id="@+id/tv_urlPoste"

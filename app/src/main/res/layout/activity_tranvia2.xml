@@ -26,6 +26,7 @@
                 android:layout_height="70sp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:contentDescription="@string/btn_tranvia"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/tranvia_nocolor" />
@@ -36,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="id tranvía"
+                android:text="@string/idTranvia"
                 android:textColor="@color/white"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +49,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
                 android:gravity="start"
-                android:text="título tranvía"
+                android:text="@string/tituloTranvia"
                 android:textColor="@color/white"
                 android:textSize="25sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -81,6 +82,7 @@
                 android:layout_height="20dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="13dp"
+                android:contentDescription="@string/icono"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/direccion_nocolor" />
@@ -91,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="destino tranvía 1"
+                android:text="@string/destinoTranvia1"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/iconoDestino1_iv"
@@ -103,6 +105,7 @@
                 android:layout_height="15dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginBottom="15dp"
+                android:contentDescription="@string/icono"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/reloj" />
@@ -114,7 +117,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="start"
-                android:text="minutos tranvía 1"
+                android:text="@string/minutosTranvia1"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -146,6 +149,7 @@
                 android:layout_height="20dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="13dp"
+                android:contentDescription="@string/icono"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/direccion_nocolor" />
@@ -156,7 +160,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
-                android:text="destino tranvía 2"
+                android:text="@string/destinoTranvia2"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -168,6 +172,7 @@
                 android:layout_height="15dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginBottom="15dp"
+                android:contentDescription="@string/icono"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/reloj" />
@@ -179,7 +184,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="start"
-                android:text="minutos tranvía 2"
+                android:text="@string/minutosTranvia2"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -208,7 +213,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/colorSecundario"
-                android:contentDescription="tranvia"
+                android:contentDescription="@string/btn_bici"
                 android:onClick="irBici"
                 app:srcCompat="@drawable/bici_nocolor_diminuto" />
 
@@ -218,7 +223,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/colorSecundario"
-                android:contentDescription="casa"
+                android:contentDescription="@string/btn_Casa"
                 android:onClick="irMenu"
                 app:srcCompat="@drawable/casa_diminuto" />
 
@@ -228,7 +233,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/colorSecundario"
-                android:contentDescription="bus"
+                android:contentDescription="@string/btn_bus"
                 android:onClick="irBus"
                 app:srcCompat="@drawable/bus_nocolor_diminuto" />
 

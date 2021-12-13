@@ -1,19 +1,34 @@
 <resources>
     <string name="app_name">Transportes de Zaragoza</string>
-    <string name="tv_titleMain">Aplicación en Construcción</string>
-    <string name="tv_titleBizi">Título estación</string>
-    <string name="btn_irBicicletas">Estaciones Bici</string>
-    <string name="tv_idBiziExtendida">ID Estación</string>
-    <string name="tv_bDisponibleBiziExtendida">Bicicletas disponibles</string>
-    <string name="tv_aBiziExtendida">Anclajes disponibles</string>
-    <string name="tv_ultimaActualizacionExtendida">Última actualización</string>
+
+    <string name="icono">icono</string>
+
+    <string name="tv_mainTitle">Transporte Urbano Zaragoza</string>
+    <string name="btn_bici">Bicicleta</string>
     <string name="btn_tranvia">Tranvía</string>
-    <string name="btn_bus">Autobús</string>
-    <string name="tv_prev_bicisDisponibles">Bicicletas Disponibles:</string>
-    <string name="tv_prev_anclajesDisponibles">Anclajes Disponibles:</string>
-    <string name="tv_prev_id">ID:</string>
-    <string name="tv_tituloTranvia">Título tranvía</string>
-    <string name="tv_idTranvia">ID Tranvia</string>
-    <string name="tv_destinoTranvia1Extend">Destino tranvía 1</string>
-    <string name="tv_minutosTranvia1Extend">Minutos tranvia 1</string>
+    <string name="btn_bus">Bus</string>
+    <string name="btn_Datos">Datos</string>
+    <string name="btn_Casa">Casa</string>
+
+    <string name="idBici">id bici</string>
+    <string name="tituloBici">titulo bici</string>
+    <string name="pBicisDisponiblesBici2_tv">Bicis disponibles:</string>
+    <string name="bicisDisponiblesBici2_tv">numero bicis disponibles</string>
+    <string name="pAnclajesDisponiblesBici2_tv">Anclajes disponibles:</string>
+    <string name="anclajesDisponiblesBici2_tv">numero anclajes disponibles</string>
+
+    <string name="idTranvia">id tranvia</string>
+    <string name="tituloTranvia">titulo tranvia</string>
+    <string name="destinoTranvia1">destino tranvia 1</string>
+    <string name="destinoTranvia2">destino tranvia 2</string>
+    <string name="minutosTranvia1">minutos tranvia 1</string>
+    <string name="minutosTranvia2">minutos tranvia 2</string>
+
+    <string name="idPoste">id poste</string>
+    <string name="tituloPoste">titulo poste</string>
+    <string name="lineaPoste">linea</string>
+    <string name="destinoLinea">destino</string>
+    <string name="minutosBus1">minutos bus 1</string>
+    <string name="minutosBus2">minutos bus 2</string>
+
 </resources>

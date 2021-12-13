@@ -29,9 +29,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
                 android:gravity="center"
-                android:text="Transporte Urbano Zaragoza"
+                android:text="@string/tv_mainTitle"
                 android:textColor="@color/white"
-                android:textSize="40dp"
+                android:textSize="40sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +57,7 @@
             android:layout_height="100dp"
             android:backgroundTint="@color/colorPrincipal"
             android:onClick="irBici"
-            android:text="Bicicleta"
+            android:text="@string/btn_bici"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
@@ -111,7 +111,7 @@
             android:layout_height="100dp"
             android:backgroundTint="@color/colorPrincipal"
             android:onClick="irDatos"
-            android:text="Datos"
+            android:text="@string/btn_Datos"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </LinearLayout>
