@@ -6,11 +6,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.transportezaragozaapi.bici.BiciActivity;
 import com.example.transportezaragozaapi.bus.PosteActivity;
-import com.example.transportezaragozaapi.datos.LoginActivity;
+import com.example.transportezaragozaapi.perfil.LoginActivity;
 import com.example.transportezaragozaapi.tranvia.TranviaActivity;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
@@ -25,10 +24,12 @@ public class MainActivity extends AppCompatActivity {
         setTheme(R.style.CargaTheme);
         setContentView(R.layout.activity_main);
 
+        // Implementacion Analytics
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 
 
+    // Metodos botones
     public void irBici(View view) {
         Intent irBici = new Intent(this, BiciActivity.class);
         startActivity(irBici);

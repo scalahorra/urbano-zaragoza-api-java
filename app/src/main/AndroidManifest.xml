@@ -13,16 +13,16 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".datos.ProfileActivity"
+            android:name=".perfil.PerfilActivity"
             android:exported="false" />
         <activity
-            android:name=".datos.DatosActivity"
+            android:name=".perfil.DatosActivity"
             android:exported="false" />
         <activity
-            android:name=".datos.HomeActivity"
+            android:name=".perfil.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".datos.LoginActivity"
+            android:name=".perfil.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".bus.Poste2Activity"
