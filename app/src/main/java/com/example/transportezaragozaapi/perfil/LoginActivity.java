@@ -12,17 +12,11 @@ import android.widget.Toast;
 
 import com.example.transportezaragozaapi.MainActivity;
 import com.example.transportezaragozaapi.R;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -42,8 +36,8 @@ public class LoginActivity extends AppCompatActivity {
 
         emailEditText = findViewById(R.id.et_emailRegistro);
         passwordEditText = findViewById(R.id.et_passwordRegistro);
-        Button signUp = findViewById(R.id.btn_registrarRegistro);
-        Button logIn = findViewById(R.id.btn_iniciarSesion);
+        Button signUp = findViewById(R.id.btn_registrarLogeo);
+        Button logIn = findViewById(R.id.btn_iniciarSesionLogeo);
 
         // Boton registro
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        // Boton logeo
+        // Boton iniciar sesion
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,6 +75,8 @@ public class LoginActivity extends AppCompatActivity {
 
     // Iniciar sesion con email y password
     private void inicioSesion() {
+
+        // Autentificacion con el email y la password
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
@@ -94,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(LoginActivity.this, "Email y/o contraseña incorrecto", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Email y/o contraseña incorrecto", Toast.LENGTH_LONG).show();
                     }
                 });
     }

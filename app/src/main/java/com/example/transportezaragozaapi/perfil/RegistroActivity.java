@@ -38,22 +38,33 @@ public class RegistroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
+        // Inicio de bd y autentificador
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+        // Conexion de variables con el layout
         et_nombreRegistro = findViewById(R.id.et_nombreRegistro);
         et_emailRegistro = findViewById(R.id.et_emailRegistro);
         et_passwordRegistro = findViewById(R.id.et_passwordRegistro);
         et_password2Registro = findViewById(R.id.et_password2Registro);
         et_codigoPostalRegistro = findViewById(R.id.et_codigoPostalRegistro);
 
-
-
-        Button registrarRegistro = findViewById(R.id.btn_registrarRegistro);
+        // Boton de registrarse
+        Button registrarRegistro = findViewById(R.id.btn_registrarLogeo);
         registrarRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 registro();
+            }
+        });
+
+        Button iniciarSesionRegistro = findViewById(R.id.btn_iniciarSesionRegistro);
+        iniciarSesionRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent irIniciarSesion = new Intent(RegistroActivity.this, LoginActivity.class);
+                startActivity(irIniciarSesion);
+                finish();
             }
         });
     }
@@ -62,12 +73,14 @@ public class RegistroActivity extends AppCompatActivity {
     // Metodo para registrarse
     private void registro() {
 
+        // Asignacion del texto a las variables
         nombre = et_nombreRegistro.getText().toString();
         email = et_emailRegistro.getText().toString();
         password1 = et_passwordRegistro.getText().toString();
         password2 = et_password2Registro.getText().toString();
         codigoPostal = et_codigoPostalRegistro.getText().toString();
 
+        // Verificadores de datos
         if(nombre.isEmpty()) {
             et_nombreRegistro.setError("Escriba su nombre");
             et_nombreRegistro.requestFocus();
@@ -101,6 +114,7 @@ public class RegistroActivity extends AppCompatActivity {
 
                             // Saca el id del usuario
                             String id = firebaseAuth.getCurrentUser().getUid();
+
 
                             // Guarda en un hashmap los datos a enviar a la bd
                             Map<String, Object> registro = new HashMap<>();
@@ -137,6 +151,14 @@ public class RegistroActivity extends AppCompatActivity {
                         }
                     });
         }
+    }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent irLogin = new Intent(RegistroActivity.this, LoginActivity.class);
+        startActivity(irLogin);
+        finish();
     }
 }
