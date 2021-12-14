@@ -1,15 +1,11 @@
 package com.example.transportezaragozaapi.datos;
 
-import static android.service.controls.ControlsProviderService.TAG;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,9 +19,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -36,12 +29,10 @@ import java.util.Objects;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText mEmail, mPassword;
-    private Button signUp, logIn;
-
     private String email, password;
 
     private FirebaseAuth firebaseAuth;
-    private FirebaseFirestore db;
+    private FirebaseFirestore firebaseFirestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,36 +40,35 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
         mEmail = (EditText) findViewById(R.id.emailEditText);
         mPassword = (EditText) findViewById(R.id.passwordEditText);
-        signUp = (Button) findViewById(R.id.signUpButton);
-        logIn = (Button) findViewById(R.id.logInButton);
+        Button signUp = (Button) findViewById(R.id.signUpButton);
+        Button logIn = (Button) findViewById(R.id.logInButton);
 
-        //Boton para registrarse
+        // Boton registro
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //System.out.println("Email: " + mEmail.getText().toString());
-                //System.out.println("Contraseña: " + mPassword.getText().toString());
 
                 email = mEmail.getText().toString();
                 password = mPassword.getText().toString();
 
+                // Comprobador de datos
                 if(!email.isEmpty() && !password.isEmpty()) {
                     if(password.length() >= 6) {
-                        registerUser();
+                        registroEmailPassword();
                     } else {
                         Toast.makeText(LoginActivity.this, "La contraseña debe tener al menos 6 carácteres", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(LoginActivity.this, "Debe completar el registro", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "No debe dejar ningún campo vacio", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        //Boton para iniciar sesion
+        // Boton logeo
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,26 +79,31 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void registerUser() {
-
+    private void registroEmailPassword() {
+        // Creacion del usuario con el email y la password
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-
                 if(task.isSuccessful()) {
+                    // Saca el id del usuario
+                    String id = firebaseAuth.getCurrentUser().getUid();
 
+                    // Guarda en un hashmap los datos a enviar a la bd
                     Map<String, Object> login = new HashMap<>();
+                    login.put("id", id);
                     login.put("email", email);
                     login.put("password", password);
 
-                    String id = firebaseAuth.getCurrentUser().getUid();
-
-                    db.collection("login")
+                    // Coloca en una coleccion de la bd los datos guardados en el hashmap
+                    firebaseFirestore.collection("login")
                             .add(login)
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
                                 public void onSuccess(@NonNull DocumentReference documentReference) {
                                     Toast.makeText(LoginActivity.this, "Registro completado", Toast.LENGTH_SHORT).show();
+                                    Intent irPerfil = new Intent(LoginActivity.this, ProfileActivity.class);
+                                    startActivity(irPerfil);
+                                    finish();
                                 }
                             })
                             .addOnFailureListener(new OnFailureListener() {
@@ -118,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             });
                 } else {
-                    Toast.makeText(LoginActivity.this, "No se pudo almacenar el usuario", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "No se consiguió mapear el usuario", Toast.LENGTH_SHORT).show();
                 }
             }
         });
