@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     private String email, password;
 
     private FirebaseAuth firebaseAuth;
-    private DatabaseReference databaseReference;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference();
+        db = FirebaseFirestore.getInstance();
 
         mEmail = (EditText) findViewById(R.id.emailEditText);
         mPassword = (EditText) findViewById(R.id.passwordEditText);
@@ -69,12 +69,10 @@ public class LoginActivity extends AppCompatActivity {
                 if(!email.isEmpty() && !password.isEmpty()) {
                     if(password.length() >= 6) {
                         registerUser();
-                    }
-                    else {
+                    } else {
                         Toast.makeText(LoginActivity.this, "La contraseña debe tener al menos 6 carácteres", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(LoginActivity.this, "Debe completar el registro", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -99,26 +97,27 @@ public class LoginActivity extends AppCompatActivity {
 
                 if(task.isSuccessful()) {
 
-                    Map<String, Object> map = new HashMap<>();
-                    map.put("email", email);
-                    map.put("password", password);
+                    Map<String, Object> login = new HashMap<>();
+                    login.put("email", email);
+                    login.put("password", password);
 
                     String id = firebaseAuth.getCurrentUser().getUid();
 
-                    databaseReference.child("Users").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task2) {
-                            if(task2.isSuccessful()) {
-                                startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
-                                finish();
-                            }
-                            else {
-                                Toast.makeText(LoginActivity.this, "No se puedieron crear los datos correctamente", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
-                else {
+                    db.collection("login")
+                            .add(login)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(@NonNull DocumentReference documentReference) {
+                                    Toast.makeText(LoginActivity.this, "Registro completado", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(LoginActivity.this, "No se pudo guardar en la base de datos", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                } else {
                     Toast.makeText(LoginActivity.this, "No se pudo almacenar el usuario", Toast.LENGTH_SHORT).show();
                 }
             }
