@@ -40,34 +40,18 @@ public class LoginActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        emailEditText = findViewById(R.id.emailEditText);
-        passwordEditText = findViewById(R.id.passwordEditText);
-        Button signUp = findViewById(R.id.signUpButton);
-        Button logIn = findViewById(R.id.logInButton);
+        emailEditText = findViewById(R.id.et_emailRegistro);
+        passwordEditText = findViewById(R.id.et_passwordRegistro);
+        Button signUp = findViewById(R.id.btn_registrarRegistro);
+        Button logIn = findViewById(R.id.btn_iniciarSesion);
 
         // Boton registro
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                email = emailEditText.getText().toString();
-                password = passwordEditText.getText().toString();
-
-                // Verificar campos registro
-                if(email.isEmpty()) {
-                    emailEditText.setError("El email no debe estar vacio");
-                    emailEditText.requestFocus();
-                } else if(password.isEmpty()) {
-                    passwordEditText.setError("La contraseña no debe estar vacia");
-                    passwordEditText.requestFocus();
-                } else {
-                    if(password.length() >= 6) {
-                        registroEmailPassword();
-                    } else {
-                        passwordEditText.setError("La contraseña debe tener al menos 6 carácteres");
-                        passwordEditText.requestFocus();
-                    }
-                }
+                Intent irRegistro = new Intent(LoginActivity.this, RegistroActivity.class);
+                startActivity(irRegistro);
+                finish();
             }
         });
 
@@ -92,49 +76,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-
-    // Registro con email y password
-    private void registroEmailPassword() {
-        // Creacion del usuario con el email y la password
-        firebaseAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()) {
-                    // Saca el id del usuario
-                    String id = firebaseAuth.getCurrentUser().getUid();
-
-                    // Guarda en un hashmap los datos a enviar a la bd
-                    Map<String, Object> login = new HashMap<>();
-                    login.put("id", id);
-                    login.put("email", email);
-                    login.put("password", password);
-
-                    // Coloca en una coleccion de la bd los datos guardados en el hashmap
-                    firebaseFirestore.collection("login")
-                            .add(login)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                @Override
-                                public void onSuccess(@NonNull DocumentReference documentReference) {
-                                    Toast.makeText(LoginActivity.this, "Registro completado", Toast.LENGTH_SHORT).show();
-                                    Intent irPerfil = new Intent(LoginActivity.this, PerfilActivity.class);
-                                    startActivity(irPerfil);
-                                    finish();
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(LoginActivity.this, "No se pudo guardar en la base de datos", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                } else {
-                    Toast.makeText(LoginActivity.this, "No se consiguió mapear el usuario", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
 
 

@@ -22,7 +22,7 @@ public class PerfilActivity extends AppCompatActivity {
 
         tv_email = findViewById(R.id.tv_email);
 
-        String email = user.getEmail();
+        String email = "email: " + user.getEmail();
 
         tv_email.setText(email);
     }
