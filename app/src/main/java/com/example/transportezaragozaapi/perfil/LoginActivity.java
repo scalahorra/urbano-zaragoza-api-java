@@ -18,7 +18,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -41,10 +40,10 @@ public class LoginActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        emailEditText = (EditText) findViewById(R.id.emailEditText);
-        passwordEditText = (EditText) findViewById(R.id.passwordEditText);
-        Button signUp = (Button) findViewById(R.id.signUpButton);
-        Button logIn = (Button) findViewById(R.id.logInButton);
+        emailEditText = findViewById(R.id.emailEditText);
+        passwordEditText = findViewById(R.id.passwordEditText);
+        Button signUp = findViewById(R.id.signUpButton);
+        Button logIn = findViewById(R.id.logInButton);
 
         // Boton registro
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -146,6 +145,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(@NonNull AuthResult authResult) {
                         Toast.makeText(LoginActivity.this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show();
+                        Intent irPerfil = new Intent(LoginActivity.this, PerfilActivity.class);
+                        startActivity(irPerfil);
+                        finish();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
