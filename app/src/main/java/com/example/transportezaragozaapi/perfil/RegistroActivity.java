@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -32,6 +33,7 @@ public class RegistroActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +114,8 @@ public class RegistroActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
+                            CollectionReference usuarios = firebaseFirestore.collection("prueba");
+
                             // Saca el id del usuario
                             String id = firebaseAuth.getCurrentUser().getUid();
 
@@ -124,12 +128,14 @@ public class RegistroActivity extends AppCompatActivity {
                             registro.put("codigoPostal", codigoPostal);
                             registro.put("password", password1);
 
+                            usuarios.document(email).set(registro);
+
                             // Crea una coleccion y coloca los datos del hashmap
-                            firebaseFirestore.collection("usuarios")
-                                    .add(registro)
-                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            firebaseFirestore.collection("usuarios").document(email)
+                                    .set(registro)
+                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
-                                        public void onSuccess(@NonNull DocumentReference documentReference) {
+                                        public void onSuccess(@NonNull Void unused) {
                                             Toast.makeText(RegistroActivity.this, "Registro exitoso", Toast.LENGTH_SHORT).show();
                                             Intent irPerfil = new Intent(RegistroActivity.this, PerfilActivity.class);
                                             startActivity(irPerfil);
@@ -139,7 +145,7 @@ public class RegistroActivity extends AppCompatActivity {
                                     .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(RegistroActivity.this, "Ha ocurrido un problema en el registro", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(RegistroActivity.this, "Registro fallido", Toast.LENGTH_SHORT).show();
                                         }
                                     });
                         }
