@@ -35,8 +35,11 @@ public class PerfilActivity extends AppCompatActivity {
         tv_emailPerfil = findViewById(R.id.tv_emailPerfil);
         tv_codigoPostalPerfil = findViewById(R.id.tv_codigoPostalPerfil);
 
+        // Email de referencia para buscar en la bd
+        String emailRef = user.getEmail();
+
         // Busqueda de un documento especifico de la bd
-        DocumentReference documentReference = firebaseFirestore.collection("usuarios").document("sergio@gmail.com");
+        DocumentReference documentReference = firebaseFirestore.collection("usuarios").document(emailRef);
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -66,12 +69,6 @@ public class PerfilActivity extends AppCompatActivity {
                 Toast.makeText(PerfilActivity.this, "Ocurrió un problema", Toast.LENGTH_SHORT).show();
             }
         });
-
-        //String nombre = user.getDisplayName();
-        //String email = user.getEmail();
-
-        //tv_nombrePerfil.setText(nombre);
-        //tv_emailPerfil.setText(email);
     }
 
 

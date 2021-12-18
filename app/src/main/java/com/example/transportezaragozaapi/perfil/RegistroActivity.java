@@ -119,7 +119,6 @@ public class RegistroActivity extends AppCompatActivity {
                             // Saca el id del usuario
                             String id = firebaseAuth.getCurrentUser().getUid();
 
-
                             // Guarda en un hashmap los datos a enviar a la bd
                             Map<String, Object> registro = new HashMap<>();
                             registro.put("id", id);
@@ -127,8 +126,6 @@ public class RegistroActivity extends AppCompatActivity {
                             registro.put("email", email);
                             registro.put("codigoPostal", codigoPostal);
                             registro.put("password", password1);
-
-                            usuarios.document(email).set(registro);
 
                             // Crea una coleccion y coloca los datos del hashmap
                             firebaseFirestore.collection("usuarios").document(email)
@@ -145,7 +142,7 @@ public class RegistroActivity extends AppCompatActivity {
                                     .addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(RegistroActivity.this, "Registro fallido", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(RegistroActivity.this, "Error al guardar en la base de datos", Toast.LENGTH_SHORT).show();
                                         }
                                     });
                         }
@@ -153,7 +150,7 @@ public class RegistroActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(RegistroActivity.this, "No se ha podido mapear los datos", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegistroActivity.this, "Error al crear el usuario", Toast.LENGTH_SHORT).show();
                         }
                     });
         }

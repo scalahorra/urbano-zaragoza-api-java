@@ -53,20 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                email = emailEditText.getText().toString();
-                password = passwordEditText.getText().toString();
-
-                // Verificar campos logeo
-                if(email.isEmpty()) {
-                    emailEditText.setError("El email no debe estar vacio");
-                    emailEditText.requestFocus();
-                } else if(password.isEmpty()) {
-                    passwordEditText.setError("La contraseña no debe estar vacia");
-                    passwordEditText.requestFocus();
-                } else {
-                    inicioSesion();
-                }
+                inicioSesion();
             }
         });
 
@@ -76,23 +63,35 @@ public class LoginActivity extends AppCompatActivity {
     // Iniciar sesion con email y password
     private void inicioSesion() {
 
-        // Autentificacion con el email y la password
-        firebaseAuth.signInWithEmailAndPassword(email, password)
-                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(@NonNull AuthResult authResult) {
-                        Toast.makeText(LoginActivity.this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show();
-                        Intent irPerfil = new Intent(LoginActivity.this, PerfilActivity.class);
-                        startActivity(irPerfil);
-                        finish();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(LoginActivity.this, "Email y/o contraseña incorrecto", Toast.LENGTH_LONG).show();
-                    }
-                });
+        email = emailEditText.getText().toString();
+        password = passwordEditText.getText().toString();
+
+        if(email.isEmpty()){
+            emailEditText.setError("El email no debe estar vacio");
+            emailEditText.requestFocus();
+        } else if(password.isEmpty()) {
+            passwordEditText.setError("La contraseña no debe estar vacia");
+            passwordEditText.requestFocus();
+        } else {
+
+            // Autentificacion con el email y la password
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(@NonNull AuthResult authResult) {
+                            Toast.makeText(LoginActivity.this, "Inicio de sesión correcto", Toast.LENGTH_SHORT).show();
+                            Intent irPerfil = new Intent(LoginActivity.this, PerfilActivity.class);
+                            startActivity(irPerfil);
+                            finish();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(LoginActivity.this, "Email y/o contraseña incorrecto", Toast.LENGTH_LONG).show();
+                        }
+                    });
+        }
     }
 
 
