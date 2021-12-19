@@ -3,6 +3,7 @@ package com.example.transportezaragozaapi.perfil;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class PerfilActivity extends AppCompatActivity {
 
-    TextView tv_nombrePerfil, tv_emailPerfil;
+    TextView tv_nombrePerfil, tv_emailPerfil, tv_esConductor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class PerfilActivity extends AppCompatActivity {
 
         tv_nombrePerfil = findViewById(R.id.tv_nombrePerfil);
         tv_emailPerfil = findViewById(R.id.tv_emailPerfil);
+        tv_esConductor = findViewById(R.id.tv_esConductor);
 
         // Email de referencia para buscar en la bd
         String emailRef = user.getEmail();
@@ -41,20 +43,25 @@ public class PerfilActivity extends AppCompatActivity {
         // Busqueda de un documento especifico de la bd
         DocumentReference documentReference = firebaseFirestore.collection("usuarios").document(emailRef);
         documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onSuccess(@NonNull DocumentSnapshot documentSnapshot) {
-
                 if(documentSnapshot.exists()) {
-
                     Toast.makeText(PerfilActivity.this, "Carga de datos correcta", Toast.LENGTH_SHORT).show();
 
                     // Asignacion datos a las variables
                     String nombre = documentSnapshot.get("nombre").toString();
                     String email = documentSnapshot.get("email").toString();
+                    boolean esConductor = documentSnapshot.get("esConductor").equals(true);
 
                     // Asignacion variables a los datos
                     tv_nombrePerfil.setText(nombre);
                     tv_emailPerfil.setText(email);
+                    if(esConductor) {
+                        tv_esConductor.setText("Es conductor");
+                    } else {
+                        tv_esConductor.setText("Es pasajero");
+                    }
 
                 } else {
                     Toast.makeText(PerfilActivity.this, "No se pudo cargar los datos", Toast.LENGTH_SHORT).show();

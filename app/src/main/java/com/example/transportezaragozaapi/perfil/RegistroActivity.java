@@ -3,12 +3,15 @@ package com.example.transportezaragozaapi.perfil;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.transportezaragozaapi.R;
@@ -31,9 +34,12 @@ import java.util.Map;
 
 public class RegistroActivity extends AppCompatActivity {
 
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    Switch sw_esConductor;
     EditText et_nombreRegistro, et_emailRegistro, et_passwordRegistro, et_password2Registro;
 
     String nombre, email, password1, password2;
+    Boolean esConductor;
 
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
@@ -53,6 +59,7 @@ public class RegistroActivity extends AppCompatActivity {
         et_emailRegistro = findViewById(R.id.et_emailRegistro);
         et_passwordRegistro = findViewById(R.id.et_passwordRegistro);
         et_password2Registro = findViewById(R.id.et_password2Registro);
+        sw_esConductor = findViewById(R.id.sw_esConductor);
 
         // Boton de registrarse
         Button registrarRegistro = findViewById(R.id.btn_registrarLogeo);
@@ -83,6 +90,7 @@ public class RegistroActivity extends AppCompatActivity {
         email = et_emailRegistro.getText().toString();
         password1 = et_passwordRegistro.getText().toString();
         password2 = et_password2Registro.getText().toString();
+        esConductor = sw_esConductor.isChecked();
 
         // Verificadores de datos
         if(nombre.isEmpty()) {
@@ -94,13 +102,13 @@ public class RegistroActivity extends AppCompatActivity {
         } else if(password1.isEmpty()) {
             et_passwordRegistro.setError("Escriba una contraseña");
             et_passwordRegistro.requestFocus();
-        }else if(password1.length() < 6) {
+        } else if(password1.length() < 6) {
             et_passwordRegistro.setError("La contraseña debe tener al menos 6 carácteres");
             et_passwordRegistro.requestFocus();
         } else if(password2.isEmpty()) {
             et_password2Registro.setError("Vuelva a escribir la contraseña");
             et_password2Registro.requestFocus();
-        }  else if(!password1.equals(password2)) {
+        } else if(!password1.equals(password2)) {
             et_passwordRegistro.setError("Las contraseñas deben ser iguales");
             et_passwordRegistro.requestFocus();
             et_password2Registro.setError("Las contraseñas deben ser iguales");
@@ -122,6 +130,7 @@ public class RegistroActivity extends AppCompatActivity {
                             registro.put("nombre", nombre);
                             registro.put("email", email);
                             registro.put("password", password1);
+                            registro.put("esConductor", esConductor);
 
                             // Crea una coleccion y coloca los datos del hashmap
                             firebaseFirestore.collection("usuarios").document(email)
