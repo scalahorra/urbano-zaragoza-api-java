@@ -98,11 +98,12 @@ public class RegistroActivity extends AppCompatActivity {
         email = et_emailRegistro.getText().toString();
         password1 = et_passwordRegistro.getText().toString();
         password2 = et_password2Registro.getText().toString();
-        //esConductor = sw_esConductor.isChecked();
         esPasajero = rb_pasajero.isChecked();
         esConductorBus = rb_conductorBus.isChecked();
         esConductorTranvia = rb_conductorTranvia.isChecked();
-        if(esConductorBus | esConductorTranvia) esConductor = true;
+
+        // Si esConductorBus o esConductorTranvia = true, esConductor = true
+        esConductor = esConductorBus | esConductorTranvia;
 
         // Verificadores de datos
         if(nombre.isEmpty()) {
@@ -146,6 +147,26 @@ public class RegistroActivity extends AppCompatActivity {
                             mapaUsuarios.put("esPasajero", esPasajero);
                             mapaUsuarios.put("esConductorBus", esConductorBus);
                             mapaUsuarios.put("esConductorTranvia", esConductorTranvia);
+
+                            // Mete a cada tipo en su respectiva clase
+                            if(esPasajero) {
+                                Map<String, Object> mapaPasajeros = new HashMap<>();
+                                mapaPasajeros.put("email", email);
+                                firebaseFirestore.collection("pasajeros").document(email)
+                                        .set(mapaPasajeros);
+                            }
+                            else if(esConductorBus) {
+                                Map<String, Object> mapaConductoresBus = new HashMap<>();
+                                mapaConductoresBus.put("email", email);
+                                firebaseFirestore.collection("bus").document(email)
+                                        .set(mapaConductoresBus);
+                            }
+                            else if(esConductorTranvia) {
+                                Map<String, Object> mapaConductoresTranvia = new HashMap<>();
+                                mapaConductoresTranvia.put("email", email);
+                                firebaseFirestore.collection("tranvia").document(email)
+                                        .set(mapaConductoresTranvia);
+                            }
 
                             // Crea una coleccion y coloca los datos del hashmap
                             firebaseFirestore.collection("usuarios").document(email)
