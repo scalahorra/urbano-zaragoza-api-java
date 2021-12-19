@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -36,10 +38,12 @@ public class RegistroActivity extends AppCompatActivity {
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch sw_esConductor;
+    RadioGroup rg_usuario;
+    RadioButton rb_pasajero, rb_conductorBus, rb_conductorTranvia;
     EditText et_nombreRegistro, et_emailRegistro, et_passwordRegistro, et_password2Registro;
 
     String nombre, email, password1, password2;
-    Boolean esConductor;
+    Boolean esConductor, esPasajero, esConductorBus, esConductorTranvia;
 
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
@@ -60,6 +64,10 @@ public class RegistroActivity extends AppCompatActivity {
         et_passwordRegistro = findViewById(R.id.et_passwordRegistro);
         et_password2Registro = findViewById(R.id.et_password2Registro);
         sw_esConductor = findViewById(R.id.sw_esConductor);
+        rg_usuario = findViewById(R.id.rg_usuario);
+        rb_pasajero = findViewById(R.id.rb_pasajero);
+        rb_conductorBus = findViewById(R.id.rb_conductorBus);
+        rb_conductorTranvia = findViewById(R.id.rb_conductorTranvia);
 
         // Boton de registrarse
         Button registrarRegistro = findViewById(R.id.btn_registrarLogeo);
@@ -90,7 +98,11 @@ public class RegistroActivity extends AppCompatActivity {
         email = et_emailRegistro.getText().toString();
         password1 = et_passwordRegistro.getText().toString();
         password2 = et_password2Registro.getText().toString();
-        esConductor = sw_esConductor.isChecked();
+        //esConductor = sw_esConductor.isChecked();
+        esPasajero = rb_pasajero.isChecked();
+        esConductorBus = rb_conductorBus.isChecked();
+        esConductorTranvia = rb_conductorTranvia.isChecked();
+        if(esConductorBus | esConductorTranvia) esConductor = true;
 
         // Verificadores de datos
         if(nombre.isEmpty()) {
@@ -125,16 +137,19 @@ public class RegistroActivity extends AppCompatActivity {
                             String id = firebaseAuth.getCurrentUser().getUid();
 
                             // Guarda en un hashmap los datos a enviar a la bd
-                            Map<String, Object> registro = new HashMap<>();
-                            registro.put("id", id);
-                            registro.put("nombre", nombre);
-                            registro.put("email", email);
-                            registro.put("password", password1);
-                            registro.put("esConductor", esConductor);
+                            Map<String, Object> mapaUsuarios = new HashMap<>();
+                            mapaUsuarios.put("id", id);
+                            mapaUsuarios.put("nombre", nombre);
+                            mapaUsuarios.put("email", email);
+                            mapaUsuarios.put("password", password1);
+                            mapaUsuarios.put("esConductor", esConductor);
+                            mapaUsuarios.put("esPasajero", esPasajero);
+                            mapaUsuarios.put("esConductorBus", esConductorBus);
+                            mapaUsuarios.put("esConductorTranvia", esConductorTranvia);
 
                             // Crea una coleccion y coloca los datos del hashmap
                             firebaseFirestore.collection("usuarios").document(email)
-                                    .set(registro)
+                                    .set(mapaUsuarios)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(@NonNull Void unused) {

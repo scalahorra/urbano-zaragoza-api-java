@@ -1,12 +1,12 @@
 package com.example.transportezaragozaapi.perfil;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -97,9 +97,8 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
 
-    // Metodo borrar usuario de usuarios y de la bd
+    // Metodo borrar cuenta de autentificacion y bd
     private void borrarUsuario() {
-
         usuario.delete()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -111,7 +110,6 @@ public class PerfilActivity extends AppCompatActivity {
                             finish();
                         }
                         else Toast.makeText(PerfilActivity.this, "No se pudo borrar el usuario", Toast.LENGTH_SHORT).show();
-
                     }
                 });
 

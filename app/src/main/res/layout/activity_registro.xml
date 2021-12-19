@@ -29,7 +29,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="80dp" />
+            android:layout_height="50dp" />
 
         <EditText
             android:id="@+id/et_nombreRegistro"
@@ -88,7 +88,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
-            android:text="¿Eres conductor de transporte público?" />
+            android:text="¿Eres conductor de transporte público?"
+            android:visibility="visible" />
+
+        <RadioGroup
+            android:id="@+id/rg_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/rb_pasajero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="Pasajero" />
+
+            <RadioButton
+                android:id="@+id/rb_conductorBus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="Conductor de bus" />
+
+            <RadioButton
+                android:id="@+id/rb_conductorTranvia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:text="Conductor de tranvía" />
+        </RadioGroup>
 
         <Space
             android:layout_width="match_parent"
