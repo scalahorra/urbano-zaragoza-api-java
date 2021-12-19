@@ -21,10 +21,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText emailEditText, passwordEditText;
-    private String email, password;
+
+    String email, password;
 
     private FirebaseAuth firebaseAuth;
-    private FirebaseFirestore firebaseFirestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseFirestore = FirebaseFirestore.getInstance();
 
         emailEditText = findViewById(R.id.et_emailRegistro);
         passwordEditText = findViewById(R.id.et_passwordRegistro);
@@ -66,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         email = emailEditText.getText().toString();
         password = passwordEditText.getText().toString();
 
+        // Verificadores de los campos
         if(email.isEmpty()){
             emailEditText.setError("El email no debe estar vacio");
             emailEditText.requestFocus();
