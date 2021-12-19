@@ -31,10 +31,9 @@ import java.util.Map;
 
 public class RegistroActivity extends AppCompatActivity {
 
-    EditText et_nombreRegistro, et_emailRegistro, et_passwordRegistro,
-            et_password2Registro, et_codigoPostalRegistro;
+    EditText et_nombreRegistro, et_emailRegistro, et_passwordRegistro, et_password2Registro;
 
-    String nombre, email, password1, password2, codigoPostal;
+    String nombre, email, password1, password2;
 
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
@@ -54,7 +53,6 @@ public class RegistroActivity extends AppCompatActivity {
         et_emailRegistro = findViewById(R.id.et_emailRegistro);
         et_passwordRegistro = findViewById(R.id.et_passwordRegistro);
         et_password2Registro = findViewById(R.id.et_password2Registro);
-        et_codigoPostalRegistro = findViewById(R.id.et_codigoPostalRegistro);
 
         // Boton de registrarse
         Button registrarRegistro = findViewById(R.id.btn_registrarLogeo);
@@ -85,7 +83,6 @@ public class RegistroActivity extends AppCompatActivity {
         email = et_emailRegistro.getText().toString();
         password1 = et_passwordRegistro.getText().toString();
         password2 = et_password2Registro.getText().toString();
-        codigoPostal = et_codigoPostalRegistro.getText().toString();
 
         // Verificadores de datos
         if(nombre.isEmpty()) {
@@ -108,9 +105,6 @@ public class RegistroActivity extends AppCompatActivity {
             et_passwordRegistro.requestFocus();
             et_password2Registro.setError("Las contraseñas deben ser iguales");
             et_password2Registro.requestFocus();
-        } else if(codigoPostal.isEmpty()) {
-            et_codigoPostalRegistro.setError("Debe poner su código postal");
-            et_codigoPostalRegistro.requestFocus();
         } else {
 
             // Creacion de la cuenta con el email y la contrasena
@@ -118,6 +112,7 @@ public class RegistroActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(@NonNull AuthResult authResult) {
+
                             // Saca el id del usuario
                             String id = firebaseAuth.getCurrentUser().getUid();
 
@@ -126,7 +121,6 @@ public class RegistroActivity extends AppCompatActivity {
                             registro.put("id", id);
                             registro.put("nombre", nombre);
                             registro.put("email", email);
-                            registro.put("codigoPostal", codigoPostal);
                             registro.put("password", password1);
 
                             // Crea una coleccion y coloca los datos del hashmap
@@ -152,7 +146,6 @@ public class RegistroActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(RegistroActivity.this, "Este correo ya está registrado", Toast.LENGTH_SHORT).show();
                             et_emailRegistro.setError("Este correo ya está registrado");
                             et_emailRegistro.requestFocus();
                         }

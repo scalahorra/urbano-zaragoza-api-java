@@ -21,7 +21,7 @@
             android:id="@+id/tv_tituloPerfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tu perfil"
+            android:text="Mi perfil"
             android:textColor="@color/black"
             android:textSize="25sp" />
 
@@ -50,13 +50,6 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="10dp" />
-
-        <TextView
-            android:id="@+id/tv_codigoPostalPerfil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="codigo postal"
-            android:textSize="20sp" />
 
         <Space
             android:layout_width="match_parent"
