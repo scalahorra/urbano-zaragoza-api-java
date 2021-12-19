@@ -7,6 +7,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,22 +28,35 @@ public class PerfilActivity extends AppCompatActivity {
 
     TextView tv_nombrePerfil, tv_emailPerfil, tv_esConductor;
     ImageView iv_fotoPerfil;
+    Button btn_borrarUsuario;
+
+    FirebaseUser usuario;
+    FirebaseFirestore firebaseFirestore;
+
+    String emailRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+        usuario = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
         tv_nombrePerfil = findViewById(R.id.tv_nombrePerfil);
         tv_emailPerfil = findViewById(R.id.tv_emailPerfil);
         tv_esConductor = findViewById(R.id.tv_esConductor);
         iv_fotoPerfil = findViewById(R.id.iv_fotoPerfil);
+        btn_borrarUsuario = findViewById(R.id.btn_borrarUsuario);
+        btn_borrarUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                borrarUsuario();
+            }
+        });
 
         // Email de referencia para buscar en la bd
-        String emailRef = user.getEmail();
+        emailRef = usuario.getEmail();
 
         // Busqueda de un documento especifico de la bd
         DocumentReference documentReference = firebaseFirestore.collection("usuarios").document(emailRef);
@@ -69,7 +84,6 @@ public class PerfilActivity extends AppCompatActivity {
                     tv_esConductor.setText(textoConductor);
 
                     Toast.makeText(PerfilActivity.this, "Carga de datos correcta", Toast.LENGTH_SHORT).show();
-
                 } else {
                     Toast.makeText(PerfilActivity.this, "No se pudo cargar los datos", Toast.LENGTH_SHORT).show();
                 }
@@ -80,6 +94,29 @@ public class PerfilActivity extends AppCompatActivity {
                 Toast.makeText(PerfilActivity.this, "No se ha podido obtener el documento de la base de datos", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+
+    // Metodo borrar usuario de usuarios y de la bd
+    private void borrarUsuario() {
+
+        usuario.delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()) {
+                            Intent irLogin = new Intent(PerfilActivity.this, LoginActivity.class);
+                            startActivity(irLogin);
+                            Toast.makeText(PerfilActivity.this, "Usuario borrado del sistema", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                        else Toast.makeText(PerfilActivity.this, "No se pudo borrar el usuario", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+        firebaseFirestore.collection("usuarios").document(emailRef)
+                .delete();
     }
 
 
