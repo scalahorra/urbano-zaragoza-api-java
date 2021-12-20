@@ -63,7 +63,6 @@ public class RegistroActivity extends AppCompatActivity {
         et_emailRegistro = findViewById(R.id.et_emailRegistro);
         et_passwordRegistro = findViewById(R.id.et_passwordRegistro);
         et_password2Registro = findViewById(R.id.et_password2Registro);
-        sw_esConductor = findViewById(R.id.sw_esConductor);
         rg_usuario = findViewById(R.id.rg_usuario);
         rb_pasajero = findViewById(R.id.rb_pasajero);
         rb_conductorBus = findViewById(R.id.rb_conductorBus);

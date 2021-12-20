@@ -34,6 +34,7 @@ public class PerfilActivity extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
 
     String emailRef;
+    Boolean esConductor, esPasajero, esConductorBus, esConductorTranvia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,10 @@ public class PerfilActivity extends AppCompatActivity {
                     String nombre = documentSnapshot.get("nombre").toString();
                     String email = documentSnapshot.get("email").toString();
                     String textoConductor;
-                    boolean esConductor = documentSnapshot.get("esConductor").equals(true);
+                    esConductor = documentSnapshot.get("esConductor").equals(true);
+                    esPasajero = documentSnapshot.get("esPasajero").equals(true);
+                    esConductorBus = documentSnapshot.get("esConductorBus").equals(true);
+                    esConductorTranvia = documentSnapshot.get("esConductorTranvia").equals(true);
 
                     // Asignacion variables a los datos
                     tv_nombrePerfil.setText(nombre);
@@ -97,8 +101,9 @@ public class PerfilActivity extends AppCompatActivity {
     }
 
 
-    // Metodo borrar cuenta de autentificacion y bd
+    // Metodo borrar cuenta
     private void borrarUsuario() {
+        // Borrado de usuario de la autentificacion
         usuario.delete()
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -113,8 +118,13 @@ public class PerfilActivity extends AppCompatActivity {
                     }
                 });
 
-        firebaseFirestore.collection("usuarios").document(emailRef)
-                .delete();
+        // Borrado de usuario de la bd usuarios
+        firebaseFirestore.collection("usuarios").document(emailRef).delete();
+
+        // Borrado del usuario de su clase especifica
+        if(esPasajero.equals(true)) firebaseFirestore.collection("pasajeros").document(emailRef).delete();
+        else if(esConductorBus.equals(true)) firebaseFirestore.collection("bus").document(emailRef).delete();
+        else if(esConductorTranvia.equals(true)) firebaseFirestore.collection("tranvia").document(emailRef).delete();
     }
 
 
