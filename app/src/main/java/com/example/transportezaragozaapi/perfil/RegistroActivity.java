@@ -36,8 +36,6 @@ import java.util.Map;
 
 public class RegistroActivity extends AppCompatActivity {
 
-    @SuppressLint("UseSwitchCompatOrMaterialCode")
-    Switch sw_esConductor;
     RadioGroup rg_usuario;
     RadioButton rb_pasajero, rb_conductorBus, rb_conductorTranvia;
     EditText et_nombreRegistro, et_emailRegistro, et_passwordRegistro, et_password2Registro;
